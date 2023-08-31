@@ -1,0 +1,26 @@
+Feito:
+Distribuição dos pesos da atividade
+Codificação (6,0)
+• Estruturas básicas do Python (programação estruturada) (0,5)
+    -> Feito
+• Função (0,5)
+    -> Feito
+• Listas (Conjuntos, Dicionários e/ou Tuplas) (0,5)
+    -> Feito
+Apresentação (2,0)
+• Defesa do Projeto (demonstrar conhecimento na explicação das estruturas de
+programação estudadas no bimestre)
+    -> Feito
+
+A fazer:
+• Recursividade (1,0)
+
+• Pilha e operações básicas (1,0)
+alimentos
+
+• Fila e operações básicas (1,0)
+
+
+Não depende de mim:
+• Complexidade da Implementação (1,0)
+• Participação em aula (0,5)
