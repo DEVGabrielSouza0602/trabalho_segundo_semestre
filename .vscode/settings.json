@@ -35,5 +35,6 @@
     "python.testing.pytestEnabled": true,
     "git.enableSmartCommit": true,
     "git.confirmSync": false,
-    "git.autofetch": true
+    "git.autofetch": true,
+    "python.formatting.provider": "none"
 }
