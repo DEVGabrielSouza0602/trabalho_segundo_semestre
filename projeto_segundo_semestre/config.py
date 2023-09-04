@@ -1,9 +1,15 @@
 import time
 import os
 
+
+def limpeza_e_time(segundos):
+    time.sleep(segundos)
+    os.system('clear')
+
+
 usuarios_permitidos = {
     'Usuarios': ['abc', 'def', 'ghi'],
-    'Senhas': ['1223', '234', '5546']
+    'Senhas': ['1223', '2334', '5546']
 }
 
 usuario_e_seus_dados = {
@@ -23,6 +29,7 @@ usuario_master = {
 login_usuario_master = usuario_master['Responsavel']
 senha_usuario_master = usuario_master['Senha']
 
+loop_menu_usuario_comum = False
 login_usuario_comum_efetuado = False
 login_usuario_master_efetuado = False
 
