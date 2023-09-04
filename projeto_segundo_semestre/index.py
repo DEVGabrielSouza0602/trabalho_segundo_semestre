@@ -4,6 +4,7 @@ import time
 import os
 
 controle_principal = True
+teste = 1
 
 while controle_principal:
     usuario_inserido = input('Digite o seu Usuario: ').lower()
