@@ -1,11 +1,14 @@
 {
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.autopep8"
+    },
     "workbench.colorTheme": "OM Theme (Default Dracula Italic)",
     "window.zoomLevel": -1,
-    "editor.fontSize": 14,
+    "editor.fontSize": 17,
     "editor.hover.enabled": true,
     "workbench.startupEditor": "none",
     "explorer.compactFolders": false,
-    "terminal.integrated.fontSize": 24,
+    "terminal.integrated.fontSize": 16,
     "editor.rulers": [
         80,
         120
@@ -27,20 +30,11 @@
         "source.fixAll.unusedImports": true,
         "source.organizeImports": true
     },
-    "python.languageServer": "Pylance",
+    "python.languageServer": "Jedi",
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,
-    "python.analysis.diagnosticSeverityOverrides": {
-        "reportUnknownMemberType": "none",
-        "reportUnknownArgumentType": "none",
-        "reportUnknownVariableType": "none",
-        "reportUnknownLambdaType": "none",
-        "reportUnknownParameterType": "none"
-    },
-    // "python.defaultInterpreterPath": "./venv/bin/python",
-    "python.analysis.typeCheckingMode": "basic",
-    "cSpell.enabled": true,
     "git.enableSmartCommit": true,
     "git.confirmSync": false,
-    "git.autofetch": true
+    "git.autofetch": true,
+    "python.formatting.provider": "none"
 }
