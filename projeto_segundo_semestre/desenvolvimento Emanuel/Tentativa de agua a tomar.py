@@ -16,14 +16,14 @@ def calcular_quantidade_agua(peso, formula="padrao"):
 
 peso = float(input("Informe o seu peso em Kg: "))
 
-# Escolha a fórmula mais adequada para fazer o cálculo
+# escolha a fórmula mais adequada para fazer o cálculo
 print("Escolha a fórmula de cálculo:")
 print("1 - Fórmula padrão (30 ml/kg)")
 print("2 - Fórmula para atletas (40 ml/kg)")
 print("3 - Fórmula personalizada")
 opcao = int(input("Digite o número da opção desejada: "))
 
-# Calcula a quantidade recomendada de água com base na escolha do usuário
+# calcula a quantidade recomendada de água com base na escolha do usuário
 if opcao == 1:
     quantidade_agua_ml = calcular_quantidade_agua(peso, "padrao")
 elif opcao == 2:
