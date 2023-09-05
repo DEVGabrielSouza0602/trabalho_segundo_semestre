@@ -59,7 +59,47 @@ while controle_principal:
                 elif config.escolha_do_menu_usuario_int == 1:
                     print('escolha 01')
                 elif config.escolha_do_menu_usuario_int == 2:
-                    print('escolha 02')
+                    while config.loop_ficha_de_treino:
+                        time.sleep(2)
+                        os.system('cls')
+                        print('Seja bem vindo a sua ficha de treino')
+                        config.apresentacao_dos_dias_da_semana(
+                            config.dias_da_semana_ficha_de_treino)
+
+                        dia_digitado = input(
+                            'Digite o numero do dia para treino: ')
+
+                        try:
+                            dia_digitado = int(dia_digitado)
+                            if dia_digitado < 0 or dia_digitado > 4:
+                                print('Dia não disponivel para treino..')
+                                time.sleep(1.5)
+                                os.system('cls')
+                            else:
+                                print('Dia disponivel para treino..')
+                                time.sleep(1.5)
+                                os.system('cls')
+                                config.dia_digitado_corretamente = True
+                        except ValueError:
+                            print('Insira apenas numeros...')
+                            time.sleep(1.5)
+                            os.system('cls')
+
+                        for numero, nome in enumerate(config.dias_da_semana_ficha_de_treino):
+                            if numero == dia_digitado:
+                                dia = nome
+                                if nome in config.dicionario_de_treinos.keys():
+                                    for i in config.dicionario_de_treinos[nome]:
+                                        print(i, end=" | ")
+                                        time.sleep(1)
+
+                        print('\nDeseja sair [s]')
+                        sair_sistema_de_treino = input(
+                            'Deseja ver outro treino [ENTER] ').lower().startswith('s')
+                        time.sleep(1)
+                        os.system('cls')
+                        if sair_sistema_de_treino is True:
+                            config.loop_ficha_de_treino = False
 
                 elif config.escolha_do_menu_usuario_int == 3:
                     print('escolha 03')

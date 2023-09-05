@@ -45,8 +45,18 @@ while loop_ficha_de_treino:
         time.sleep(1.5)
         os.system('cls')
 
-    if dia_digitado_corretamente is True:
-        dia_do_treino = dias_da_semana_ficha_de_treino[dia_digitado]
-        print(dia_do_treino)
-        time.sleep(1.5)
-        os.system('cls')
+    for numero, nome in enumerate(dias_da_semana_ficha_de_treino):
+        if numero == dia_digitado:
+            dia = nome
+            if nome in dicionario_de_treinos.keys():
+                for i in dicionario_de_treinos[nome]:
+                    print(i, end=" | ")
+                    time.sleep(1)
+
+    print('\nDeseja sair [s]')
+    sair_sistema_de_treino = input(
+        'Deseja ver outro treino [ENTER] ').lower().startswith('s')
+    time.sleep(1)
+    os.system('cls')
+    if sair_sistema_de_treino is True:
+        loop_ficha_de_treino = False
