@@ -16,7 +16,7 @@ calorias_incluidas = []
 tamanho_da_lista_dos_alimentos_incluidos = len(calorias_incluidas)
 
 
-def recursividade_calorias(contagem_de_calorias, lista_das_calorias, tamanho_da_lista):
+def recursividade_calorias(lista_das_calorias):
     if tamanho_da_lista == 1:
         return contagem_de_calorias + lista_das_calorias[tamanho_da_lista]
 
