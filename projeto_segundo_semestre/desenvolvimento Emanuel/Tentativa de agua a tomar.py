@@ -1,20 +1,18 @@
 '''Quant de agua a tomar'''
 
 
-def calcular_quantidade_agua(peso, formula="padrao"):
+def calcular_quantidade_agua(peso_do_usuario, formula="padrao"):
     if formula == "padrao":
-        return peso * 30
+        return peso_do_usuario * 30
     elif formula == "atleta":
-        return peso * 40
+        return peso_do_usuario * 40
     elif formula == "personalizado":
         personalizacao = float(
             input("Informe a quantidade personalizada de água (ml/kg): "))
-        return peso * personalizacao
+        return peso_do_usuario * personalizacao
     else:
         return ("Fórmula de cálculo não reconhecida")
 
-
-peso = float(input("Informe o seu peso em Kg: "))
 
 # escolher uma fórmula de cálculo
 print("Escolha a fórmula mais adequada para o cálculo:")
@@ -25,11 +23,12 @@ formula_escolhida = int(input("Digite o número da opção desejada: "))
 
 # calcula a quantidade recomendada de água com base na escolha da fórmula
 if formula_escolhida == 1:
-    quantidade_agua_ml = calcular_quantidade_agua(peso, "padrao")
+    quantidade_agua_ml = calcular_quantidade_agua(peso_do_usuario, "padrao")
 elif formula_escolhida == 2:
-    quantidade_agua_ml = calcular_quantidade_agua(peso, "atleta")
+    quantidade_agua_ml = calcular_quantidade_agua(peso_do_usuario, "atleta")
 elif formula_escolhida == 3:
-    quantidade_agua_ml = calcular_quantidade_agua(peso, "personalizado")
+    quantidade_agua_ml = calcular_quantidade_agua(
+        peso_do_usuario, "personalizado")
 else:
     print("Opção inválida.")
     quantidade_agua_ml = 0
