@@ -54,3 +54,6 @@ def apresentacao_dos_dias_da_semana(chaves_de_treinos):
 loop_ficha_de_treino = True
 dias_da_semana_ficha_de_treino = dicionario_de_treinos.keys()
 dia_digitado_corretamente = None
+
+dicas_de_treino = ['abc', 'fed', 'ghi']
+loop_dicas_De_treino = True

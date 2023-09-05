@@ -57,7 +57,21 @@ while controle_principal:
                     config.loop_menu_usuario_comum = False
                     config.login_usuario_comum_efetuado = False
                 elif config.escolha_do_menu_usuario_int == 1:
-                    print('escolha 01')
+                    while config.loop_dicas_De_treino:
+                        for i in config.dicas_de_treino:
+                            print('SISTEMA DE DICAS:')
+                            time.sleep(1)
+                            print(i)
+                            time.sleep(2)
+                            print('Pressione [ENTER] para proxima dica...')
+                            pular_ou_sair = input(
+                                '[S] para sair do sistema... ').lower().startswith('s')
+                            time.sleep(1)
+                            os.system('cls')
+                            if pular_ou_sair is True:
+                                config.loop_dicas_De_treino = False
+                                break
+
                 elif config.escolha_do_menu_usuario_int == 2:
                     while config.loop_ficha_de_treino:
                         time.sleep(2)
