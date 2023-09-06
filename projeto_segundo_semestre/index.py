@@ -118,7 +118,23 @@ while controle_principal:
 
                 elif config.escolha_do_menu_usuario_int == 3:
                     print('escolha 03')
+                    # Informações do usuário (podemos mudar depois já que o usuario tem tudo)
+                    sexo = input(
+                        "Informe o sexo (M para masculino, F para feminino): ").upper()
+                    peso = float(input("Informe o peso em kg: "))
+                    altura = float(input("Informe a altura em cm: ")) / \
+                        100  # Pra converter os cm em metros
+                    idade = int(input("Informe a idade em anos: "))
 
+                    tmb = config.calcular_tmb(sexo, peso, altura,
+                                              idade)  # Calcular a TMB
+
+                    if tmb != "":
+                        print(
+                            f"A sua TMB é de aproximadamente {tmb:.2f} calorias por dia.")
+                    else:
+                        print(
+                            "Sexo não reconhecido. Use 'M' para masculino ou 'F' para feminino.")
                 elif config.escolha_do_menu_usuario_int == 4:
                     print('escolha 04')
 

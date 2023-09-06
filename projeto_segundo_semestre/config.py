@@ -57,3 +57,13 @@ dia_digitado_corretamente = None
 
 dicas_de_treino = ['abc', 'fed', 'ghi']
 loop_dicas_De_treino = True
+
+
+def calcular_tmb(sexo_tmb, peso_tmb, altura_tmb, idade_tmb):
+    if sexo == "M":
+        tmb = 66 + (13.8 * peso) + (5 * altura) - (6.8 * idade)
+    elif sexo == "F":
+        tmb = 665 + (9.6 * peso) + (1.8 * altura) - (4.7 * idade)
+    else:
+        tmb = ""
+    return tmb
