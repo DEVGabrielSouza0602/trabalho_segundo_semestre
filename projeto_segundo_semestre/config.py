@@ -67,3 +67,16 @@ def calcular_tmb(sexo_tmb, peso_tmb, altura_tmb, idade_tmb):
     else:
         tmb = ""
     return tmb
+
+
+def calcular_quantidade_agua(peso, formula="padrao"):
+    if formula == "padrao":
+        return peso * 30
+    elif formula == "atleta":
+        return peso * 40
+    elif formula == "personalizado":
+        personalizacao = float(
+            input("Informe a quantidade personalizada de água (ml/kg): "))
+        return peso * personalizacao
+    else:
+        raise ValueError("Fórmula de cálculo não reconhecida")
