@@ -138,31 +138,41 @@ while controle_principal:
                             "Sexo não reconhecido. Use 'M' para masculino ou 'F' para feminino.")
                 elif config.escolha_do_menu_usuario_int == 4:
                     config.limpeza_e_time(2)
+                    looping_quantidade_agua = True
+                    while looping_quantidade_agua:
+                        peso = float(peso_do_usuario)
+                        # escolha a fórmula mais adequada para fazer o cálculo
+                        print("Escolha a fórmula de cálculo:")
+                        print("1 - Fórmula padrão (30 ml/kg)")
+                        print("2 - Fórmula para atletas (40 ml/kg)")
+                        print("3 - Fórmula personalizada")
+                        opcao = int(
+                            input("Digite o número da opção desejada: "))
 
-                    # escolha a fórmula mais adequada para fazer o cálculo
-                    print("Escolha a fórmula de cálculo:")
-                    print("1 - Fórmula padrão (30 ml/kg)")
-                    print("2 - Fórmula para atletas (40 ml/kg)")
-                    print("3 - Fórmula personalizada")
-                    opcao = int(input("Digite o número da opção desejada: "))
+                        # calcula a quantidade recomendada de água com base na escolha do usuário
+                        if opcao == 1:
+                            quantidade_agua_ml = config.calcular_quantidade_agua(
+                                peso, "padrao")
+                        elif opcao == 2:
+                            quantidade_agua_ml = config.calcular_quantidade_agua(
+                                peso, "atleta")
+                        elif opcao == 3:
+                            quantidade_agua_ml = config.calcular_quantidade_agua(
+                                peso, "personalizado")
+                        else:
+                            print("Opção inválida.")
+                            quantidade_agua_ml = 0
 
-                    # calcula a quantidade recomendada de água com base na escolha do usuário
-                    if opcao == 1:
-                        quantidade_agua_ml = config.calcular_quantidade_agua(
-                            peso, "padrao")
-                    elif opcao == 2:
-                        quantidade_agua_ml = config.calcular_quantidade_agua(
-                            peso, "atleta")
-                    elif opcao == 3:
-                        quantidade_agua_ml = config.calcular_quantidade_agua(
-                            peso, "personalizado")
-                    else:
-                        print("Opção inválida.")
-                        quantidade_agua_ml = 0
-
-                    if quantidade_agua_ml > 0:
-                        print(
-                            f"Você deve tomar aproximadamente {quantidade_agua_ml:.2f} ml de água por dia.")
+                        if quantidade_agua_ml > 0:
+                            print(
+                                f"Você deve tomar aproximadamente {quantidade_agua_ml:.2f} ml de água por dia.")
+                        print('\nDeseja sair [s]')
+                        sair_sistema_de_agua = input(
+                            'Deseja ver outro treino [ENTER] ').lower().startswith('s')
+                        time.sleep(1)
+                        os.system('cls')
+                        if sair_sistema_de_agua is True:
+                            looping_quantidade_agua = False
 
                 elif config.escolha_do_menu_usuario_int == 5:
                     print('escolha 05')

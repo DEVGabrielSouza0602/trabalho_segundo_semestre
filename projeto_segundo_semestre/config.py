@@ -70,7 +70,7 @@ def calcular_tmb(sexo_tmb, peso_tmb, altura_tmb, idade_tmb):
     return tmb
 
 
-def calcular_quantidade_agua(peso, formula="padrao"):
+def calcular_quantidade_agua(peso, formula):
     if formula == "padrao":
         return peso * 30
     elif formula == "atleta":
