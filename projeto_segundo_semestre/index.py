@@ -21,6 +21,8 @@ while controle_principal:
         print(f'Ola {usuario_inserido}, seja bem vindo')
         config.limpeza_e_time(2)
         print('Inicialmente vamos inserir seu dados: ')
+        sexo_do_usuario = input(
+            "Informe o sexo (M para masculino, F para feminino): ")
         nome_do_usuario = input('Digite seu nome: ')
         idade_do_usuario = input('Digite sua idade: ')
         peso_do_usuario = input('Digite seu peso: ')
@@ -32,6 +34,7 @@ while controle_principal:
         config.usuario_e_seus_dados['Idade'] = idade_do_usuario
         config.usuario_e_seus_dados['Peso'] = peso_do_usuario
         config.usuario_e_seus_dados['Altura'] = altura_do_usuario
+        config.usuario_e_seus_dados['sexo'] = sexo_do_usuario
         config.loop_menu_usuario_comum = True
         while config.loop_menu_usuario_comum:
             print('Menu Inicial')
@@ -117,12 +120,10 @@ while controle_principal:
                             config.loop_ficha_de_treino = False
 
                 elif config.escolha_do_menu_usuario_int == 3:
-                    print('escolha 03')
+                    config.limpeza_e_time(2)
                     # Informações do usuário (podemos mudar depois já que o usuario tem tudo)
-                    sexo = input(
-                        "Informe o sexo (M para masculino, F para feminino): ").upper()
-                    peso = float(input("Informe o peso em kg: "))
-                    altura = float(input("Informe a altura em cm: ")) / \
+                    peso = float(peso_do_usuario)
+                    altura = altura_do_usuario / \
                         100  # Pra converter os cm em metros
                     idade = int(input("Informe a idade em anos: "))
 
@@ -136,8 +137,7 @@ while controle_principal:
                         print(
                             "Sexo não reconhecido. Use 'M' para masculino ou 'F' para feminino.")
                 elif config.escolha_do_menu_usuario_int == 4:
-                    print('escolha 04')
-                    peso = float(input("Informe o seu peso em Kg: "))
+                    config.limpeza_e_time(2)
 
                     # escolha a fórmula mais adequada para fazer o cálculo
                     print("Escolha a fórmula de cálculo:")

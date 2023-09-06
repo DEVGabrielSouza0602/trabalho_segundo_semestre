@@ -18,6 +18,7 @@ usuario_e_seus_dados = {
     'Peso': 0.0,
     'Altura': '',
     'atividade fisica': None,
+    'sexo': ''
 
 }
 
