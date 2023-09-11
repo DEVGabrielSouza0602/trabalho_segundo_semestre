@@ -27,14 +27,15 @@ while permanecer_tabela:
     print(50*"=") #Cabeçario da Tabela
     print("                TABELA NUTRICIONAL")
     print(50*"-")
-    print("[0] Consultar alimentos")
-    print("[1] Adicionar alimentos (apenas usuários master)")
+    print("[1] Consultar alimentos")
+    print("[2] Adicionar alimentos (apenas usuários master)")
+    print("[0] Sair para o menu")
     print(50*"=")
 
     escolha_menu = int(input("Digite o indice correspondente ao que deseja: ")) #Escolhe se quer consultar ou adicionar
 
 
-    if escolha_menu == 0: #IF da consulta
+    if escolha_menu == 1: #IF da consulta
         
         os.system("cls")
         time.sleep(1)
@@ -65,11 +66,9 @@ while permanecer_tabela:
             print(50*"=") 
 
             time.sleep(1)
-            voltar = input("Deseja permanecer em Tabela Nutricional? Sim ou Não? ").lower().startswith('n') #Retorna para o menu da Tabela, ou volta ao inicio de tudo
-            if voltar == True:
-                permanecer_tabela = False
+            input("Pressione ENTER para continuar")
 
-    elif escolha_menu == 1:
+    elif escolha_menu == 2:
         os.system("cls")
 
         print(50*"=") #Cabeçario da Tabela
@@ -121,6 +120,9 @@ while permanecer_tabela:
             os.system("cls")
             time.sleep(1)
             print(50*"=")
-            voltar = input("Deseja permanecer em Tabela Nutricional? Sim ou Não? ").lower().startswith('n')
-            if voltar == True:
-                permanecer_tabela = False
+            input("Pressione ENTER para continuar")
+    
+    elif escolha_menu == 0:
+        voltar = input("Deseja realmente sair de Tabela Nutricional? Sim ou Não? ").lower().startswith('n') #Retorna para o menu da Tabela, ou volta ao inicio de tudo
+        if voltar == True:
+            permanecer_tabela = False
