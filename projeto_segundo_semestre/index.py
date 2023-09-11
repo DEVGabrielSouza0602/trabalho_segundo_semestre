@@ -44,7 +44,6 @@ while controle_principal:
             print('[4] Quantidade de Agua diario')
             print('[5] Dieta Basica')
             print('[6] Tabela Nutricional')
-            print('[7] Visualizar seu dados')
             print('[0] Deslogar')
             config.escolha_do_menu_usuario = input(
                 'Qual sua escolha com o numero indicado: ')
