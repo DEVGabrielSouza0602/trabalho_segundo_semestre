@@ -287,7 +287,7 @@ while controle_principal:
                     print('escolha 07')
                 else:
                     print('Numero nao esta listado')
-            except:
+            except ValueError:
                 print('Digite um numero disponivel !!!')
 
     while config.login_usuario_master_efetuado:
