@@ -207,7 +207,7 @@ while controle_principal:
 
                         if escolha_frequencia != 0:
                             gasto_energetico = round(config.calcular_tmb * frequencia, 2)
-                            consumo_proteinas_diario = round( * 3, 2)
+                            consumo_proteinas_diario = round(peso_do_usuario * 3, 2)
                             consumo_calorias_diario_massa = round(gasto_energetico + 750, 2)
                             consumo_calorias_diario_emagrecimento = round(gasto_energetico - 500, 2)
                             quantidade_proteinas_refeicao = round(consumo_proteinas_diario/6, 2)
