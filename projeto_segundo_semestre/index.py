@@ -39,7 +39,7 @@ while controle_principal:
         while config.loop_menu_usuario_comum:
             print('Menu Inicial')
             print('[1] Dicas de academia')
-            print('[2] Ficha de treino0')
+            print('[2] Ficha de treino')
             print('[3] Taxa De Metabolismo Basal')
             print('[4] Quantidade de Agua diario')
             print('[5] Dieta Basica')
