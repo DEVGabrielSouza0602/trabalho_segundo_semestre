@@ -32,13 +32,13 @@ while permanecer_na_dieta:
         permanecer_na_dieta = False
 
     if escolha_frequencia != 0:
-        gasto_energetico = 2000 * frequencia
-        consumo_proteinas_diario = 70 * 3
-        consumo_calorias_diario_massa = gasto_energetico + 750
-        consumo_calorias_diario_emagrecimento = gasto_energetico - 500
-        quantidade_proteinas_refeicao = consumo_proteinas_diario/6
-        quantida_calorias_refeicao_emagrecimento = consumo_calorias_diario_emagrecimento/6
-        quantida_calorias_refeicao_massa = consumo_calorias_diario_massa/6
+        gasto_energetico = round(2000 * frequencia, 2)
+        consumo_proteinas_diario = round(70 * 3, 2)
+        consumo_calorias_diario_massa = round(gasto_energetico + 750, 2)
+        consumo_calorias_diario_emagrecimento = round(gasto_energetico - 500, 2)
+        quantidade_proteinas_refeicao = round(consumo_proteinas_diario/6, 2)
+        quantida_calorias_refeicao_emagrecimento = round(consumo_calorias_diario_emagrecimento/6, 2)
+        quantida_calorias_refeicao_massa = round(consumo_calorias_diario_massa/6, 2)
 
         os.system("cls")
         print(70*"=") #Cabeçario das Dietas
@@ -56,7 +56,7 @@ while permanecer_na_dieta:
             print(70*"=")
             print("OBJETIVO: Emagrecer")
             print(70*"-")
-            print("CONSUMO\n")
+            print("CONSUMO IDEAL- 6 refeições\n")
             print(f"Diário de calorias: {consumo_calorias_diario_emagrecimento}kcal")
             print(f"Diário de proteínas: {consumo_proteinas_diario}g")
             print(f"Por refeição de calorias: {quantida_calorias_refeicao_emagrecimento}kcal")
@@ -66,3 +66,18 @@ while permanecer_na_dieta:
             input("Pressione ENTER para continuar")
             os.system("cls")
 
+        if escolha_dieta == 2:
+            print(70*"=") #Cabeçario das Dietas
+            print("                          DIETAS BÁSICAS")
+            print(70*"=")
+            print("OBJETIVO: ganhar massa muscular")
+            print(70*"-")
+            print("CONSUMO IDEAL - 6 refeições\n")
+            print(f"Diário de calorias: {consumo_calorias_diario_massa:.2f}kcal")
+            print(f"Diário de proteínas: {consumo_proteinas_diario:.2f}g")
+            print(f"Por refeição de calorias: {quantida_calorias_refeicao_massa:.2f}kcal")
+            print(f"Por refeição de proteínas: {quantidade_proteinas_refeicao:.2f}g")
+            print(70*"-")
+            time.sleep(1)
+            input("Pressione ENTER para continuar")
+            os.system("cls")
