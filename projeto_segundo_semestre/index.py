@@ -79,7 +79,7 @@ while controle_principal:
                     while config.loop_ficha_de_treino:
                         time.sleep(2)
                         os.system('cls')
-                        print('Seja beem vindo a sua ficha de treino')
+                        print('Seja bem vindo a sua ficha de treino')
                         config.apresentacao_dos_dias_da_semana(
                             config.dias_da_semana_ficha_de_treino)
 
