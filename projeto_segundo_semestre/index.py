@@ -126,8 +126,8 @@ while controle_principal:
                         100  # Pra converter os cm em metros
                     idade = int(input("Informe a idade em anos: "))
 
-                    tmb = config.calcular_tmb(sexo, peso, altura,
-                                              idade)  # Calcular a TMB
+                    tmb = config.calcular_tmb(config.sexo, config.peso, config.altura,
+                                              config.idade)  # Calcular a TMB
 
                     if tmb != "":
                         print(
