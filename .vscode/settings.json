@@ -2,7 +2,7 @@
     "[python]": {
         "editor.defaultFormatter": "ms-python.autopep8"
     },
-    "workbench.colorTheme": "OM Theme (Default Dracula Italic)",
+    "workbench.colorTheme": "Omni",
     "window.zoomLevel": -1,
     "editor.fontSize": 17,
     "editor.hover.enabled": true,
