@@ -275,15 +275,14 @@ while controle_principal:
                                 config.push(config.sodio, sodio_novo)
                             
                             else: #ELSE caso não confirme a adição, e ver se usuário deseja permanecer na tabela
-                                os.system("cls")
-                                time.sleep(1)
                                 print(50*"=")
                                 input("Pressione ENTER para continuar")
                         
                         elif escolha_menu == 0:
-                            voltar = input("Deseja realmente sair de Tabela Nutricional? Sim ou Não? ").lower().startswith('n') #Retorna para o menu da Tabela, ou volta ao inicio de tudo
+                            voltar = input("[S] para sair do sistema").lower().startswith('s') #Retorna para o menu da Tabela, ou volta ao inicio de tudo
                             if voltar == True:
                                 permanecer_tabela = False
+                                os.system("cls")
 
                 elif config.escolha_do_menu_usuario_int == 7:
                     print('escolha 07')

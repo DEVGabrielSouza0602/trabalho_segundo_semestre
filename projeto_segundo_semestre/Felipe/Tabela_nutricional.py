@@ -123,6 +123,6 @@ while permanecer_tabela:
             input("Pressione ENTER para continuar")
     
     elif escolha_menu == 0:
-        voltar = input("Deseja realmente sair de Tabela Nutricional? Sim ou Não? ").lower().startswith('n') #Retorna para o menu da Tabela, ou volta ao inicio de tudo
+        voltar = input("[[S] para sair do sistema ").lower().startswith('s') #Retorna para o menu da Tabela, ou volta ao inicio de tudo
         if voltar == True:
             permanecer_tabela = False
