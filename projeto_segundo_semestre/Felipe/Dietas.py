@@ -1,6 +1,5 @@
 import os
 import time
-import config
 
 print(70*"=") #Cabeçario das Dietas
 print("                          DIETAS BÁSICAS")
@@ -26,11 +25,33 @@ elif escolha_frequencia == 4:
 elif escolha_frequencia == 5:
     frequencia = 1.9
 
-os.system("cls")
+gasto_energetico = 2000 * frequencia
+consumo_proteinas_diario = 70 * 3
+consumo_calorias_diario_massa = gasto_energetico + 750
+consumo_calorias_diario_emagrecimento = gasto_energetico - 500
+quantidade_proteinas_refeicao = consumo_proteinas_diario/6
+quantida_calorias_refeicao_emagrecimento = consumo_calorias_diario_emagrecimento/6
+quantida_calorias_refeicao_massa = consumo_calorias_diario_massa/6
 
+os.system("cls")
 print(70*"=") #Cabeçario das Dietas
 print("                          DIETAS BÁSICAS")
 print(70*"=")
 print("[1] Emagrecer")
-print("[2] Ganhar de massa muscular")
+print("[2] Ganhar massa muscular")
 print(70*"-")
+escolha_dieta = input("Digite o indice para escolher a dieta: ")
+os.system("cls")
+    
+if escolha_dieta == 1:
+    print(70*"=") #Cabeçario das Dietas
+    print("                          DIETAS BÁSICAS")
+    print(70*"=")
+    print("OBJETIVO: Emagrecer")
+    print(70*"-")
+    print(f"Consumo diário de calorias: {consumo_calorias_diario_emagrecimento}kcal")
+    print(f"Consumo diário de proteínas: {consumo_proteinas_diario}g")
+    print(70*"-")
+    print(f"Consumo estimado por refeição de calorias: {quantida_calorias_refeicao_emagrecimento}kcal")
+    print(f"Consumo estimado por refeição de proteínas: {quantidade_proteinas_refeicao}g")
+
