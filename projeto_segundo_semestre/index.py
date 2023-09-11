@@ -84,7 +84,7 @@ while controle_principal:
                             config.dias_da_semana_ficha_de_treino)
 
                         dia_digitado = input(
-                            'Digite o numero do dia para treino: ')
+                            'Digite o numero d dia para treino: ')
 
                         try:
                             dia_digitado = int(dia_digitado)
