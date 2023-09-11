@@ -40,7 +40,7 @@ print(70*"=")
 print("[1] Emagrecer")
 print("[2] Ganhar massa muscular")
 print(70*"-")
-escolha_dieta = input("Digite o indice para escolher a dieta: ")
+escolha_dieta = int(input("Digite o indice para escolher a dieta: "))
 os.system("cls")
     
 if escolha_dieta == 1:
@@ -49,9 +49,11 @@ if escolha_dieta == 1:
     print(70*"=")
     print("OBJETIVO: Emagrecer")
     print(70*"-")
-    print(f"Consumo diário de calorias: {consumo_calorias_diario_emagrecimento}kcal")
-    print(f"Consumo diário de proteínas: {consumo_proteinas_diario}g")
+    print("CONSUMO\n")
+    print(f"Diário de calorias: {consumo_calorias_diario_emagrecimento}kcal")
+    print(f"Diário de proteínas: {consumo_proteinas_diario}g")
+    print(f"Por refeição de calorias: {quantida_calorias_refeicao_emagrecimento}kcal")
+    print(f"Por refeição de proteínas: {quantidade_proteinas_refeicao}g")
     print(70*"-")
-    print(f"Consumo estimado por refeição de calorias: {quantida_calorias_refeicao_emagrecimento}kcal")
-    print(f"Consumo estimado por refeição de proteínas: {quantidade_proteinas_refeicao}g")
+    
 
