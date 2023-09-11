@@ -59,6 +59,7 @@ dia_digitado_corretamente = None
 dicas_de_treino = ['abc', 'fed', 'ghi']
 loop_dicas_De_treino = True
 
+#CALCULO TMB
 
 def calcular_tmb(sexo_tmb, peso_tmb, altura_tmb, idade_tmb):
     if sexo == "M":
@@ -69,6 +70,7 @@ def calcular_tmb(sexo_tmb, peso_tmb, altura_tmb, idade_tmb):
         tmb = ""
     return tmb
 
+#QUANTIDADE ÁGUA
 
 def calcular_quantidade_agua(peso, formula):
     if formula == "padrao":
