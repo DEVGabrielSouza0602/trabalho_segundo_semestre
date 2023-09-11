@@ -126,8 +126,8 @@ while controle_principal:
                         100  # Pra converter os cm em metros
                     idade = int(input("Informe a idade em anos: "))
 
-                    tmb = config.calcular_tmb(sexo, peso, altura,
-                                              idade)  # Calcular a TMB
+                    tmb = config.calcular_tmb(config.sexo, config.peso, config.altura,
+                                              config.idade)  # Calcular a TMB
 
                     if tmb != "":
                         print(
@@ -264,7 +264,7 @@ while controle_principal:
                             print(f"Sódio: {sodio_novo}mg")
                             print(50*"=")
 
-                            adicionar = input(f"Confirmar a adição: Sim ou Não? ").lower().startswith('s') #Confirmação antes de adicionar o alimento
+                            adicionar = input("Confirmar a adição: Sim ou Não? ").lower().startswith('s') #Confirmação antes de adicionar o alimento
                             if adicionar == True: #IF para adicionar os dados do novo alimento, e retornar ao inicio da tabela
                                 config.push(config.alimento, novo_alimeto)
                                 config.push(config.quantidade_teste, quantidade_nova)
@@ -287,7 +287,7 @@ while controle_principal:
                     print('escolha 07')
                 else:
                     print('Numero nao esta listado')
-            except:
+            except ValueError:
                 print('Digite um numero disponivel !!!')
 
     while config.login_usuario_master_efetuado:
