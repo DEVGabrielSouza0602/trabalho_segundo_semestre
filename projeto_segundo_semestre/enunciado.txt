@@ -11,11 +11,11 @@ Apresentação (2,0)
 • Defesa do Projeto (demonstrar conhecimento na explicação das estruturas de
 programação estudadas no bimestre)
     -> Feito
-
-A fazer:
 • Recursividade (1,0)
-
+    -> Feito
 • Pilha e operações básicas (1,0)
+    -> Feito
+A fazer:
 alimentos
 
 • Fila e operações básicas (1,0)
