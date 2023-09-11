@@ -81,3 +81,24 @@ def calcular_quantidade_agua(peso, formula):
         return peso * personalizacao
     else:
         raise ValueError("Fórmula de cálculo não reconhecida")
+
+
+#TABELA NUTRICIONAL
+
+def verificar_vazio(lista):
+    return len(lista) == 0
+
+
+def push(lista, item):
+    lista.append(item)
+
+def size(lista):
+    return len(lista)
+
+
+alimento = ['Frango', 'Arroz branco', 'Feijão preto', 'Batata doce', 'Banana','Maça', 'Pão integral']
+quantidade_teste = [100, 100, 100, 100, 100, 100, 100]
+valor_energético = [139, 130, 76, 100 ,89, 52, 247]
+carboidratos = [0.3, 28.2, 14, 24, 23, 14, 41]
+proteinas = [26, 2.7, 4.3, 2, 1.1, 0.3, 13]
+sodio = [153, 1, 99 , 36, 1, 1, 400]
