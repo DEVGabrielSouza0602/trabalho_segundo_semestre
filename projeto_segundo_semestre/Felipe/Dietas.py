@@ -1,5 +1,6 @@
 import os
 import time
+import config
 
 print(70*"=") #Cabeçario das Dietas
 print("                          DIETAS BÁSICAS")
@@ -24,4 +25,3 @@ elif escolha == 4:
     frequencia = 1.725
 elif escolha == 5:
     frequencia = 1.9
-
