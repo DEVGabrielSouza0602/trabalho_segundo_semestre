@@ -200,7 +200,7 @@ while controle_principal:
                             quantidade_agua_ml = 0
 
                         if quantidade_agua_ml > 0:
-                            print(f"Você deve tomar aproximadamente {quantidade_agua_ml:.2f} ml de água por dia.")
+                            print(f"\nVocê deve tomar aproximadamente {quantidade_agua_ml:.2f} ml de água por dia.")
                             print(70*"=")
                         print('\nDeseja sair [s]')
                         sair_sistema_de_agua = input(
