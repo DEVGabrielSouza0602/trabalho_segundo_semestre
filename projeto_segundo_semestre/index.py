@@ -166,7 +166,7 @@ while controle_principal:
                 elif config.escolha_do_menu_usuario_int == 4:
                     config.limpeza_e_time(2)
                     print(70*"=")
-                    print(70*"                  CÁLCULO DE ÁGUA")
+                    print("                  CÁLCULO DE ÁGUA")
                     print(70*"-")
                     looping_quantidade_agua = True
                     while looping_quantidade_agua:
