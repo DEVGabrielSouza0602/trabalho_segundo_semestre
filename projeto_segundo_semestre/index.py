@@ -181,6 +181,11 @@ while controle_principal:
                             input("Digite o número da opção desejada: "))
 
                         # calcula a quantidade recomendada de água com base na escolha do usuário
+                        config.limpeza_e_time(2)
+                        print(70*"=")
+                        print("                  CÁLCULO DE ÁGUA")
+                        print(70*"-")
+
                         if opcao == 1:
                             quantidade_agua_ml = config.calcular_quantidade_agua(
                                 peso, "padrao")
@@ -195,8 +200,8 @@ while controle_principal:
                             quantidade_agua_ml = 0
 
                         if quantidade_agua_ml > 0:
-                            print(
-                                f"Você deve tomar aproximadamente {quantidade_agua_ml:.2f} ml de água por dia.")
+                            print(f"Você deve tomar aproximadamente {quantidade_agua_ml:.2f} ml de água por dia.")
+                            print(70*"=")
                         print('\nDeseja sair [s]')
                         sair_sistema_de_agua = input(
                             'Deseja ver outro treino [ENTER] ').lower().startswith('s')
