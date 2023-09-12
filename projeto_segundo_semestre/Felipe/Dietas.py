@@ -1,6 +1,7 @@
 import os
 import time
 
+
 permanecer_na_dieta = True
 
 while permanecer_na_dieta:
@@ -32,8 +33,8 @@ while permanecer_na_dieta:
         permanecer_na_dieta = False
 
     if escolha_frequencia != 0:
-        gasto_energetico = round(2000 * frequencia, 2)
-        consumo_proteinas_diario = round(70 * 3, 2)
+        gasto_energetico = round((2000 * frequencia), 2)
+        consumo_proteinas_diario = round((70 * 3), 2)
         consumo_calorias_diario_massa = round(gasto_energetico + 750, 2)
         consumo_calorias_diario_emagrecimento = round(gasto_energetico - 500, 2)
         quantidade_proteinas_refeicao = round(consumo_proteinas_diario/6, 2)

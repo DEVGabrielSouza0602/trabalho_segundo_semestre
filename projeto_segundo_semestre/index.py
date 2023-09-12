@@ -22,11 +22,11 @@ while controle_principal:
         config.limpeza_e_time(2)
         print('Inicialmente vamos inserir seu dados: ')
         sexo_do_usuario = input(
-            "Informe o sexo (M para masculino, F para feminino): ")
+            "Informe o sexo (M para masculino, F para feminino): ").upper()
         nome_do_usuario = input('Digite seu nome: ')
-        idade_do_usuario = input('Digite sua idade: ')
-        peso_do_usuario = input('Digite seu peso: ')
-        altura_do_usuario = input('Digite sua altura: ')
+        idade_do_usuario = int(input('Digite sua idade: '))
+        peso_do_usuario = float(input('Digite seu peso: '))
+        altura_do_usuario = int(input('Digite sua altura: '))
 
         print('Armazenado seus dados...')
         config.limpeza_e_time(2)
@@ -35,6 +35,10 @@ while controle_principal:
         config.usuario_e_seus_dados['Peso'] = peso_do_usuario
         config.usuario_e_seus_dados['Altura'] = altura_do_usuario
         config.usuario_e_seus_dados['sexo'] = sexo_do_usuario
+        peso = float(peso_do_usuario)
+        altura = altura_do_usuario / 100  # Pra converter os cm em metros
+        idade = idade_do_usuario
+        tmb = config.calcular_tmb(sexo_do_usuario, peso, altura, idade)
         config.loop_menu_usuario_comum = True
         while config.loop_menu_usuario_comum:
             print('Menu Inicial')
@@ -121,13 +125,9 @@ while controle_principal:
                 elif config.escolha_do_menu_usuario_int == 3:
                     config.limpeza_e_time(2)
                     # Informações do usuário (podemos mudar depois já que o usuario tem tudo)
-                    peso = float(peso_do_usuario)
-                    altura = altura_do_usuario / \
-                        100  # Pra converter os cm em metros
-                    idade = int(input("Informe a idade em anos: "))
+                    
 
-                    tmb = config.calcular_tmb(config.sexo, config.peso, config.altura,
-                                              config.idade)  # Calcular a TMB
+                      # Calcular a TMB
 
                     if tmb != "":
                         print(
@@ -176,6 +176,7 @@ while controle_principal:
                 elif config.escolha_do_menu_usuario_int == 5:
                     print('escolha 05')
                     permanecer_na_dieta = True
+                    config.limpeza_e_time(2)
 
                     while permanecer_na_dieta:
                         print(70*"=") #Cabeçario das Dietas
@@ -206,13 +207,14 @@ while controle_principal:
                             permanecer_na_dieta = False
 
                         if escolha_frequencia != 0:
-                            gasto_energetico = round(config.calcular_tmb * frequencia, 2)
-                            consumo_proteinas_diario = round(peso_do_usuario * 3, 2)
-                            consumo_calorias_diario_massa = round(gasto_energetico + 750, 2)
-                            consumo_calorias_diario_emagrecimento = round(gasto_energetico - 500, 2)
-                            quantidade_proteinas_refeicao = round(consumo_proteinas_diario/6, 2)
-                            quantida_calorias_refeicao_emagrecimento = round(consumo_calorias_diario_emagrecimento/6, 2)
-                            quantida_calorias_refeicao_massa = round(consumo_calorias_diario_massa/6, 2)
+                            
+                            gasto_energetico = (tmb * frequencia )
+                            consumo_proteinas_diario = (peso_do_usuario * 3)
+                            consumo_calorias_diario_massa = (gasto_energetico + 750)
+                            consumo_calorias_diario_emagrecimento = (gasto_energetico - 500)
+                            quantidade_proteinas_refeicao = (consumo_proteinas_diario/6)
+                            quantida_calorias_refeicao_emagrecimento = (consumo_calorias_diario_emagrecimento/6)
+                            quantida_calorias_refeicao_massa = (consumo_calorias_diario_massa/6)
 
                             os.system("cls")
                             print(70*"=") #Cabeçario das Dietas

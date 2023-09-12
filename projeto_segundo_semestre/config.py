@@ -61,14 +61,16 @@ loop_dicas_De_treino = True
 
 #CALCULO TMB
 
+
 def calcular_tmb(sexo_tmb, peso_tmb, altura_tmb, idade_tmb):
-    if sexo == "M":
-        tmb = 66 + (13.8 * peso) + (5 * altura) - (6.8 * idade)
-    elif sexo == "F":
-        tmb = 665 + (9.6 * peso) + (1.8 * altura) - (4.7 * idade)
-    else:
-        tmb = ""
-    return tmb
+    if sexo_tmb == "M":
+        tmb = float(66 + (13.8 * peso_tmb) + (5 * altura_tmb) - (6.8 * idade_tmb))
+        return tmb
+
+    elif sexo_tmb == "F":
+        tmb = float(665 + (9.6 * peso_tmb) + (1.8 * altura_tmb) - (4.7 * idade_tmb))
+        return tmb
+    
 
 #QUANTIDADE ÁGUA
 
