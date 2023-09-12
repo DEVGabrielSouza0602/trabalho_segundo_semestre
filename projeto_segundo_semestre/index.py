@@ -208,13 +208,13 @@ while controle_principal:
 
                         if escolha_frequencia != 0:
                             
-                            gasto_energetico = (tmb * frequencia )
-                            consumo_proteinas_diario = (peso_do_usuario * 3)
-                            consumo_calorias_diario_massa = (gasto_energetico + 750)
-                            consumo_calorias_diario_emagrecimento = (gasto_energetico - 500)
-                            quantidade_proteinas_refeicao = (consumo_proteinas_diario/6)
-                            quantida_calorias_refeicao_emagrecimento = (consumo_calorias_diario_emagrecimento/6)
-                            quantida_calorias_refeicao_massa = (consumo_calorias_diario_massa/6)
+                            gasto_energetico = round(tmb * frequencia, 2 )
+                            consumo_proteinas_diario = round(peso_do_usuario * 3, 2)
+                            consumo_calorias_diario_massa = round(gasto_energetico + 750, 2)
+                            consumo_calorias_diario_emagrecimento = round(gasto_energetico - 500, 2)
+                            quantidade_proteinas_refeicao = round(consumo_proteinas_diario/6, 2)
+                            quantida_calorias_refeicao_emagrecimento =round(consumo_calorias_diario_emagrecimento/6, 2)
+                            quantida_calorias_refeicao_massa = round(consumo_calorias_diario_massa/6, 2)
 
                             os.system("cls")
                             print(70*"=") #Cabeçario das Dietas
