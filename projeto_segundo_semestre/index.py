@@ -103,13 +103,14 @@ while controle_principal:
                         time.sleep(2)
                         os.system('cls')
                         print(70*"=")
-                        print('             BEM VINDO, FICHA DE TREINO!')
+                        print('                       FICHA DE TREINO!')
                         print(70*"-")
                         config.apresentacao_dos_dias_da_semana(
                             config.dias_da_semana_ficha_de_treino)
+                        print(70*"=")
 
                         dia_digitado = input(
-                            'Digite o numero d dia para treino: ')
+                            'Digite o indice do dia para treino: ')
 
                         try:
                             dia_digitado = int(dia_digitado)
@@ -134,11 +135,14 @@ while controle_principal:
                             if numero == dia_digitado:
                                 dia = nome
                                 if nome in config.dicionario_de_treinos.keys():
+                                    print(70*"=")
+                                    print('                     FICHA DE TREINO!')
+                                    print(70*"-")
                                     for i in config.dicionario_de_treinos[nome]:
                                         print(i, end=" | ")
                                         time.sleep(1)
 
-                        print(70*"=")
+                        print("\n", 69*"=")
                         print('\nDeseja sair [s]')
                         sair_sistema_de_treino = input(
                             'Deseja ver outro treino [ENTER] ').lower().startswith('s')
