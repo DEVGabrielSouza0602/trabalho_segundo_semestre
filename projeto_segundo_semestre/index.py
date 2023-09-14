@@ -250,8 +250,8 @@ while controle_principal:
                             
                             gasto_energetico = round(tmb * frequencia, 2 )
                             consumo_proteinas_diario = round(peso_do_usuario * 3, 2)
-                            consumo_calorias_diario_massa = round(gasto_energetico + 750, 2)
-                            consumo_calorias_diario_emagrecimento = round(gasto_energetico - 500, 2)
+                            consumo_calorias_diario_massa = round(gasto_energetico + 600, 2)
+                            consumo_calorias_diario_emagrecimento = round(gasto_energetico - 300, 2)
                             quantidade_proteinas_refeicao = round(consumo_proteinas_diario/6, 2)
                             quantida_calorias_refeicao_emagrecimento =round(consumo_calorias_diario_emagrecimento/6, 2)
                             quantida_calorias_refeicao_massa = round(consumo_calorias_diario_massa/6, 2)
