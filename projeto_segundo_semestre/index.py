@@ -163,15 +163,17 @@ while controle_principal:
                     else:
                         print("Sexo não reconhecido. Use 'M' para masculino ou 'F' para feminino.")
                         print(70*"=")
+                    input("Pressione ENTER para continuar")
+                    os.system("cls")
                 elif config.escolha_do_menu_usuario_int == 4:
                     config.limpeza_e_time(2)
-                    print(70*"=")
-                    print("                  CÁLCULO DE ÁGUA")
-                    print(70*"-")
                     looping_quantidade_agua = True
                     while looping_quantidade_agua:
                         peso = float(peso_do_usuario)
                         # escolha a fórmula mais adequada para fazer o cálculo
+                        print(70*"=")
+                        print("                  CÁLCULO DE ÁGUA")
+                        print(70*"-")
                         print("Escolha a fórmula de cálculo:")
                         print("1 - Fórmula padrão (30 ml/kg)")
                         print("2 - Fórmula para atletas (40 ml/kg)")
@@ -204,7 +206,7 @@ while controle_principal:
                             print(70*"=")
                         print('\nDeseja sair [s]')
                         sair_sistema_de_agua = input(
-                            'Deseja ver outro treino [ENTER] ').lower().startswith('s')
+                            'Para fazer outro cálculo pressione [ENTER] ').lower().startswith('s')
                         time.sleep(1)
                         os.system('cls')
                         if sair_sistema_de_agua is True:
@@ -242,6 +244,7 @@ while controle_principal:
                             frequencia = 1.9
                         elif escolha_frequencia == 0:
                             permanecer_na_dieta = False
+                            os.system("cls")
 
                         if escolha_frequencia != 0:
                             
