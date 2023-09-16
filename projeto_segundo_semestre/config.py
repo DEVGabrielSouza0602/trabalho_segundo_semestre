@@ -8,7 +8,7 @@ def limpeza_e_time(segundos):
 
 
 usuarios_permitidos = {
-    'Usuarios': ['abc', 'def', 'ghi'],
+    'Usuarios': ['Gabriel', 'Felipe', 'Emanuel'],
     'Senhas': ['1223', '2334', '5546']
 }
 
@@ -38,11 +38,11 @@ escolha_do_menu_usuario = ''
 escolha_do_menu_usuario_int = 0
 
 dicionario_de_treinos = {
-    'Segunda': ('a', 'b', 'c'),
-    'Terça': ('e', '2', '3'),
-    'Quarta': ('b', '5', 'f'),
-    'Quinta': ('8', 'o', 'v'),
-    'Sexta': ('1', '0', 's')
+    'Segunda': ('Peito', 'Triceps'),
+    'Terça': ('Costas', 'Biceps'),
+    'Quarta': ('Pernas', 'Panturilha'),
+    'Quinta': ('Peito', 'Triceps'),
+    'Sexta': ('Ombro')
 }
 
 
@@ -56,7 +56,7 @@ loop_ficha_de_treino = True
 dias_da_semana_ficha_de_treino = dicionario_de_treinos.keys()
 dia_digitado_corretamente = None
 
-dicas_de_treino = ['abc', 'fed', 'ghi']
+dicas_de_treino = ['Treine com progressão de carga🏋️‍♀️', 'Não Pule o treino de pernas🦵', 'Beba agua o dia todo.🥃💉']
 loop_dicas_De_treino = True
 
 #CALCULO TMB

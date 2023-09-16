@@ -9,7 +9,7 @@ while controle_principal:
     print(70*"=") #Cabeçario Tela de Login
     print("                     TELA DE LOGIN DO USUÁRIO")
     print(70*"-")
-    usuario_inserido = input('Digite o seu Usuario: ').lower()
+    usuario_inserido = input('Digite o seu Usuario: ').capitalize()
     senha_inserida = input('Digite a sua senha: ')
     print(70*"-")
     if usuario_inserido in config.usuarios_permitidos['Usuarios']:
@@ -31,7 +31,8 @@ while controle_principal:
         print(70*"=") #Cabeçario de solicitação de informações
         print("                       INFORMAÇÕES CADASTRAIS")
         print(70*"-")
-        sexo_do_usuario = input("Informe o sexo (M para masculino, F para feminino): ").upper()
+        print("Qual o seu sexo: ").upper()
+        sexo_do_usuario = input("(M) Masculino ou (F) para feminino: ").upper()
         nome_do_usuario = input('Digite seu nome: ')
         idade_do_usuario = int(input('Digite sua idade: '))
         peso_do_usuario = float(input('Digite seu peso: '))
@@ -213,7 +214,7 @@ while controle_principal:
                             looping_quantidade_agua = False
 
                 elif config.escolha_do_menu_usuario_int == 5:
-                    print('escolha 05')
+                    
                     permanecer_na_dieta = True
                     config.limpeza_e_time(2)
 
@@ -300,7 +301,7 @@ while controle_principal:
 
                 #TABELA NUTRICIONAL
                 elif config.escolha_do_menu_usuario_int == 6:
-                    print('escolha 06')
+                    
                     permanecer_tabela = True
                     while permanecer_tabela:
                         os.system("cls")
