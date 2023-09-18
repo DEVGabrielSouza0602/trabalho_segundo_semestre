@@ -42,7 +42,7 @@ dicionario_de_treinos = {
     'Terça': ('Costas', 'Biceps'),
     'Quarta': ('Pernas', 'Panturilha'),
     'Quinta': ('Peito', 'Triceps'),
-    'Sexta': ('Ombro')
+    'Sexta': ('Ombro', 'Abdomem')
 }
 
 

@@ -22,6 +22,7 @@ while controle_principal:
         config.limpeza_e_time(3)
 
     while config.login_usuario_comum_efetuado:
+        config.loop_ficha_de_treino = True
         config.limpeza_e_time(1)
         print(70*"=") #Cabeçario Login efetuado
         print("                      LOGIN FEITO COM SUCESSO")
@@ -31,7 +32,7 @@ while controle_principal:
         print(70*"=") #Cabeçario de solicitação de informações
         print("                       INFORMAÇÕES CADASTRAIS")
         print(70*"-")
-        print("Qual o seu sexo: ").upper()
+        print("Qual o seu sexo: ")
         sexo_do_usuario = input("(M) Masculino ou (F) para feminino: ").upper()
         nome_do_usuario = input('Digite seu nome: ')
         idade_do_usuario = int(input('Digite sua idade: '))
@@ -149,7 +150,7 @@ while controle_principal:
                             'Deseja ver outro treino [ENTER] ').lower().startswith('s')
                         time.sleep(1)
                         os.system('cls')
-                        if sair_sistema_de_treino is True:
+                        if sair_sistema_de_treino == True:
                             config.loop_ficha_de_treino = False
 
                 elif config.escolha_do_menu_usuario_int == 3: #Taxa de Metabolismo Basal
@@ -315,7 +316,11 @@ while controle_principal:
 
                         escolha_menu = int(input("Digite o indice correspondente ao que deseja: ")) #Escolhe se quer consultar ou adicionar
 
-                        if escolha_menu == 1: #IF da consulta
+                        if escolha_menu == 0:
+                            permanecer_tabela = False
+                            os.system("cls")
+
+                        elif escolha_menu == 1: #IF da consulta
                             
                             os.system("cls")
                             time.sleep(1)
@@ -327,7 +332,7 @@ while controle_principal:
                             for i in range(config.size(config.alimento)): #FOR para apresentar alimentos da Tabela
                                 print(f"[{i}]", config.alimento[i])
                             
-                            print(50*"-")
+                            print(70*"-")
 
                             escolha_alimento = int(input("Digite o indice do alimento para consulta: ")) #Escolhe o alimento para consulta
 
@@ -351,7 +356,7 @@ while controle_principal:
                         elif escolha_menu == 2:
                             os.system("cls")
 
-                            print(50*"=") #Cabeçario da Tabela
+                            print(70*"=") #Cabeçario da Tabela
                             print("                TABELA NUTRICIONAL")
                             print(70*"-")
                             novo_alimeto = input("Digite o nome do alimento: ") #INPUT para nome do alimento
@@ -406,8 +411,10 @@ while controle_principal:
                     print('escolha 07')
                 else:
                     print('Numero nao esta listado')
+                    config.limpeza_e_time(2)
             except ValueError:
                 print('Digite um numero disponivel !!!')
+                config.limpeza_e_time(2)
 
     while config.login_usuario_master_efetuado:
         print(f'Ola {usuario_inserido}, seja bem vindo')
