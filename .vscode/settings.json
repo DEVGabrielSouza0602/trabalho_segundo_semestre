@@ -2,7 +2,7 @@
     "[python]": {
         "editor.defaultFormatter": "ms-python.autopep8"
     },
-    "workbench.colorTheme": "Omni",
+    "workbench.colorTheme": "Monokai",
     "window.zoomLevel": -1,
     "editor.fontSize": 17,
     "editor.hover.enabled": true,
