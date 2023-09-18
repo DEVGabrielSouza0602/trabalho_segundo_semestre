@@ -81,6 +81,7 @@ while controle_principal:
                     config.loop_menu_usuario_comum = False
                     config.login_usuario_comum_efetuado = False
                 elif config.escolha_do_menu_usuario_int == 1:
+                    config.loop_dicas_De_treino = True
                     config.limpeza_e_time(2)
                     while config.loop_dicas_De_treino:
                         for i in config.dicas_de_treino:
@@ -101,6 +102,7 @@ while controle_principal:
                                 break
 
                 elif config.escolha_do_menu_usuario_int == 2:
+                    config.loop_ficha_de_treino = True
                     while config.loop_ficha_de_treino:
                         time.sleep(2)
                         os.system('cls')
@@ -305,7 +307,7 @@ while controle_principal:
                     
                     permanecer_tabela = True
                     while permanecer_tabela:
-                        os.system("cls")
+                        config.limpeza_e_time(2)
                         print(70*"=") #Cabeçario da Tabela
                         print("                    TABELA NUTRICIONAL")
                         print(70*"-")
