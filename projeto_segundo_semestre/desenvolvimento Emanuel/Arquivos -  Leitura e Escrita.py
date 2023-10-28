@@ -13,7 +13,10 @@ except Exception as e:
     print(f"Ocorreu um erro ao ler o arquivo: {e}")
 # Tenho que pensar como colocar isso certinho na dieta
 
-# Preciso colocar a lista aqui
+
+# Preciso colocar a lista aqui, na hora que imprimir o texto pergunta se
+# ele quer pegar outro treino ou sair dai adiciona o botão "Deseja  imprimir o treino?" ou só coloca
+# [1] Selecionar outro treino, [2] Imprimir Treino, [3] Sair da Ficha de Treino
 lista_de_treino = []
 
 # Nomeando o arquivo
