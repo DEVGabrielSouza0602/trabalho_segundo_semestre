@@ -1,9 +1,9 @@
 from Alimentos import Alimentos
 
 #CLASSE FILHA
-class Frutas (Alimentos):
+class Verduras (Alimentos):
     def __init__ (self, nome, quantidade, calorias, carboidratos, proteinas, sodio):
-        super().__init__(nome, tipo = "Fruta")
+        super().__init__(nome, tipo = "Verdura")
         self._quantidade = quantidade
         self._calorias = calorias
         self._carboidratos = carboidratos
