@@ -11,7 +11,7 @@ class Carnes (Alimentos):
         self._sodio = sodio
         self._fibras = fibras
 
-#MÉTODO com OVERLOAD
+#MÉTODO com OVERRIDE
     def descreverAlimento (self):
         print(
             f'\nTipo: {self._tipo}\n'

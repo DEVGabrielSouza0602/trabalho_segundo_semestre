@@ -10,7 +10,7 @@ class Verduras (Alimentos):
         self._proteinas = proteinas
         self._sodio = sodio
 
-#MÉTODO com OVERLOAD
+#MÉTODO com OVERRIDE
     def descreverAlimento (self):
         print(
             f'\nTipo: {self._tipo}\n'
