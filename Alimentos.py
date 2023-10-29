@@ -13,3 +13,5 @@ class Alimentos (ABC):
     @abstractmethod
     def descreverAlimento (self):
         pass
+
+    
