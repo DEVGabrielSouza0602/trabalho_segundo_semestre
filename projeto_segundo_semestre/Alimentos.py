@@ -130,7 +130,7 @@ class Verduras (Alimentos):
             f'Sodio: {self._sodio}mg\n'
         )
 
-#CRIANDO OS ALIMENTOS
+#CRIANDO OS ALIMENTOS ----------------------------------------------------------
 Frango = Carnes("Frango", 100, 159, 0, 32, 0, 50)
 ArrozBranco = Graos("ArrozBranco", 100, 32, 7.03, 0.63, 0.40, 0.25)
 FeijãoPreto = Graos("FeijãoPreto", 100, 77, 14, 4.5, 8.4, 1.9)
@@ -139,7 +139,7 @@ Banana = Frutas("Banana", 100, 39.60, 10.32, 0.52, 0)
 Maça = Frutas("Maça", 100, 67.60, 17.95, 0.34, 1.30)
 Leite = Liquidos("Leite", 100, 120, 9.60, 6, 130, 6.40)
 
-#LISTA PARA ARMAZENAR OS NOMES DOS ALIMENTOS
+#LISTA PARA ARMAZENAR OS NOMES DOS ALIMENTOS -----------------------------------
 listaNomesAlimentos = []
 listaNomesAlimentos.append(Frango._nome)
 listaNomesAlimentos.append(ArrozBranco._nome)
