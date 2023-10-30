@@ -13,7 +13,7 @@ from Verduras import Verduras
 controle_principal = True
 
 while controle_principal:
-    print(70*"=") #Cabeçario Tela de Login
+    print(70*"=")  # Cabeçario Tela de Login
     print("                     TELA DE LOGIN DO USUÁRIO")
     print(70*"-")
     usuario_inserido = input('Digite o seu Usuario: ').capitalize()
@@ -31,12 +31,12 @@ while controle_principal:
     while config.login_usuario_comum_efetuado:
         config.loop_ficha_de_treino = True
         config.limpeza_e_time(1)
-        print(70*"=") #Cabeçario Login efetuado
+        print(70*"=")  # Cabeçario Login efetuado
         print("                      LOGIN FEITO COM SUCESSO")
         print(70*"=")
         print(f'OLÁ {usuario_inserido}, seja bem vindo!')
         config.limpeza_e_time(3)
-        print(70*"=") #Cabeçario de solicitação de informações
+        print(70*"=")  # Cabeçario de solicitação de informações
         print("                       INFORMAÇÕES CADASTRAIS")
         print(70*"-")
         print("Qual o seu sexo: ")
@@ -63,7 +63,7 @@ while controle_principal:
 
 #MENU INICIAL ------------------------------------------------------------------------------------------------------
         while config.loop_menu_usuario_comum:
-            print(70*"=") #Cabeçario do Menu Inicial
+            print(70*"=")  # Cabeçario do Menu Inicial
             print("                             MENU INICIAL")
             print(70*"-")
             print('[1] Dicas de academia')
@@ -71,11 +71,11 @@ while controle_principal:
             print('[3] Taxa De Metabolismo Basal')
             print('[4] Quantidade de Agua diario')
             print('[5] Dieta Basica')
-     
+
             print('[6] Tabela Nutricional')
             print('[0] Deslogar')
             print(70*"=")
-            config.escolha_do_menu_usuario = input( #INPUT para escolha do item do menu
+            config.escolha_do_menu_usuario = input(  # INPUT para escolha do item do menu
                 'Qual sua escolha de acordo com os indices: ')
             try:
                 config.escolha_do_menu_usuario_int = int(
@@ -83,7 +83,8 @@ while controle_principal:
                 if config.escolha_do_menu_usuario_int == 0:
                     config.limpeza_e_time(2)
                     print(70*"=")
-                    print("        OBRIGADO PELA PREFERÊNCIA, ATÉ LOGO! ", {nome_do_usuario})
+                    print("        OBRIGADO PELA PREFERÊNCIA, ATÉ LOGO! ", {
+                          nome_do_usuario})
                     print(70*"-")
                     print('Desconectando do sistema...')
                     print(70*"=")
@@ -158,26 +159,36 @@ while controle_principal:
                                         time.sleep(1)
 
                         print("\n", 69*"=")
-                        print('\nDeseja sair [s]')
+                        print('\n[1]Deseja sair')
+
                         sair_sistema_de_treino = input(
-                            'Deseja ver outro treino [ENTER] ').lower().startswith('s')
+                            '[3]Deseja ver outro treino [ENTER] ').lower().startswith('1')
                         time.sleep(1)
                         os.system('cls')
+
+                        imprimir_ficha = input(
+                            '\n[2]Deseja imprimir o texto').lower().startswith('2')
+                        time.sleep(1)
+                        os.system('cls')
+
                         if sair_sistema_de_treino == True:
                             config.loop_ficha_de_treino = False
+                        elif imprimir_ficha == True:
+                            config.loop_ficha_de_treino = False
 
-#TAXA DE METABOLISMO BASAL ------------------------------------------------------------------------------------------------------
-                elif config.escolha_do_menu_usuario_int == 3: 
+                elif config.escolha_do_menu_usuario_int == 3: #Taxa de Metabolismo Basal
                     config.limpeza_e_time(2)
                     os.system('cls')
                     print(70*"=")
                     print("                     TAXA DE METABOLISMO BASAL")
                     print(70*"-")
                     if tmb != "":
-                        print(f"A sua TMB é de aproximadamente {tmb:.2f} calorias por dia.")
+                        print(
+                            f"A sua TMB é de aproximadamente {tmb:.2f} calorias por dia.")
                         print(70*"=")
                     else:
-                        print("Sexo não reconhecido. Use 'M' para masculino ou 'F' para feminino.")
+                        print(
+                            "Sexo não reconhecido. Use 'M' para masculino ou 'F' para feminino.")
                         print(70*"=")
                     input("Pressione ENTER para continuar")
                     os.system("cls")
@@ -218,7 +229,8 @@ while controle_principal:
                             quantidade_agua_ml = 0
 
                         if quantidade_agua_ml > 0:
-                            print(f"\nVocê deve tomar aproximadamente {quantidade_agua_ml:.2f} ml de água por dia.")
+                            print(
+                                f"\nVocê deve tomar aproximadamente {quantidade_agua_ml:.2f} ml de água por dia.")
                             print(70*"=")
                         print('\nDeseja sair [s]')
                         sair_sistema_de_agua = input(
@@ -230,12 +242,12 @@ while controle_principal:
 
 #DIETA ------------------------------------------------------------------------------------------------------
                 elif config.escolha_do_menu_usuario_int == 5:
-                    
+
                     permanecer_na_dieta = True
                     config.limpeza_e_time(2)
 
                     while permanecer_na_dieta:
-                        print(70*"=") #Cabeçario das Dietas
+                        print(70*"=")  # Cabeçario das Dietas
                         print("                          DIETAS BÁSICAS")
                         print(70*"=")
                         print("Frequência de Exercícios")
@@ -247,7 +259,8 @@ while controle_principal:
                         print("[5] Muito pesado (diariamente ou 2X ao dia)")
                         print("[0] Voltar ao menu")
                         print(70*"-")
-                        escolha_frequencia = int(input("Digite o indice de acordo com a frequência que você se exercita: "))
+                        escolha_frequencia = int(
+                            input("Digite o indice de acordo com a frequência que você se exercita: "))
 
                         if escolha_frequencia == 1:
                             frequencia = 1.2
@@ -264,104 +277,180 @@ while controle_principal:
                             os.system("cls")
 
                         if escolha_frequencia != 0:
-                            
-                            gasto_energetico = round(tmb * frequencia, 2 )
-                            consumo_proteinas_diario = round(peso_do_usuario * 3, 2)
-                            consumo_calorias_diario_massa = round(gasto_energetico + 600, 2)
-                            consumo_calorias_diario_emagrecimento = round(gasto_energetico - 300, 2)
-                            quantidade_proteinas_refeicao = round(consumo_proteinas_diario/6, 2)
-                            quantida_calorias_refeicao_emagrecimento =round(consumo_calorias_diario_emagrecimento/6, 2)
-                            quantida_calorias_refeicao_massa = round(consumo_calorias_diario_massa/6, 2)
+
+                            gasto_energetico = round(tmb * frequencia, 2)
+                            consumo_proteinas_diario = round(
+                                peso_do_usuario * 3, 2)
+                            consumo_calorias_diario_massa = round(
+                                gasto_energetico + 600, 2)
+                            consumo_calorias_diario_emagrecimento = round(
+                                gasto_energetico - 300, 2)
+                            quantidade_proteinas_refeicao = round(
+                                consumo_proteinas_diario/6, 2)
+                            quantida_calorias_refeicao_emagrecimento = round(
+                                consumo_calorias_diario_emagrecimento/6, 2)
+                            quantida_calorias_refeicao_massa = round(
+                                consumo_calorias_diario_massa/6, 2)
 
                             os.system("cls")
-                            print(70*"=") #Cabeçario das Dietas
+                            print(70*"=")  # Cabeçario das Dietas
                             print("                          DIETAS BÁSICAS")
                             print(70*"=")
                             print("[1] Emagrecer")
                             print("[2] Ganhar massa muscular")
                             print(70*"-")
-                            escolha_dieta = int(input("Digite o indice para escolher a dieta: "))
+                            escolha_dieta = int(
+                                input("Digite o indice para escolher a dieta: "))
                             os.system("cls")
-                                
+
                             if escolha_dieta == 1:
-                                print(70*"=") #Cabeçario das Dietas
+                                print(70*"=")  # Cabeçario das Dietas
                                 print("                          DIETAS BÁSICAS")
                                 print(70*"=")
                                 print("OBJETIVO: Emagrecer")
                                 print(70*"-")
                                 print("CONSUMO IDEAL- 6 refeições\n")
-                                print(f"Diário de calorias: {consumo_calorias_diario_emagrecimento}kcal")
-                                print(f"Diário de proteínas: {consumo_proteinas_diario}g")
-                                print(f"Por refeição de calorias: {quantida_calorias_refeicao_emagrecimento}kcal")
-                                print(f"Por refeição de proteínas: {quantidade_proteinas_refeicao}g")
+                                print(
+                                    f"Diário de calorias: {consumo_calorias_diario_emagrecimento}kcal")
+                                print(
+                                    f"Diário de proteínas: {consumo_proteinas_diario}g")
+                                print(
+                                    f"Por refeição de calorias: {quantida_calorias_refeicao_emagrecimento}kcal")
+                                print(
+                                    f"Por refeição de proteínas: {quantidade_proteinas_refeicao}g")
                                 print(70*"-")
                                 time.sleep(1)
                                 input("Pressione ENTER para continuar")
                                 os.system("cls")
 
                             if escolha_dieta == 2:
-                                print(70*"=") #Cabeçario das Dietas
+                                print(70*"=")  # Cabeçario das Dietas
                                 print("                          DIETAS BÁSICAS")
                                 print(70*"=")
                                 print("OBJETIVO: ganhar massa muscular")
                                 print(70*"-")
                                 print("CONSUMO IDEAL - 6 refeições\n")
-                                print(f"Diário de calorias: {consumo_calorias_diario_massa:.2f}kcal")
-                                print(f"Diário de proteínas: {consumo_proteinas_diario:.2f}g")
-                                print(f"Por refeição de calorias: {quantida_calorias_refeicao_massa:.2f}kcal")
-                                print(f"Por refeição de proteínas: {quantidade_proteinas_refeicao:.2f}g")
+                                print(
+                                    f"Diário de calorias: {consumo_calorias_diario_massa:.2f}kcal")
+                                print(
+                                    f"Diário de proteínas: {consumo_proteinas_diario:.2f}g")
+                                print(
+                                    f"Por refeição de calorias: {quantida_calorias_refeicao_massa:.2f}kcal")
+                                print(
+                                    f"Por refeição de proteínas: {quantidade_proteinas_refeicao:.2f}g")
                                 print(70*"-")
                                 time.sleep(1)
                                 input("Pressione ENTER para continuar")
                                 os.system("cls")
 
-#TABELA NUTRICIONAL ------------------------------------------------------------------------------------------------------
+                #TABELA NUTRICIONAL
                 elif config.escolha_do_menu_usuario_int == 6:
-                    
+
                     permanecer_tabela = True
                     while permanecer_tabela:
-
-                        os.system("cls")
-                        print(50*"=") #Cabeçario da Tabela
-                        print("                TABELA NUTRICIONAL")
-                        print(50*"-")
+                        config.limpeza_e_time(2)
+                        print(70*"=") #Cabeçario da Tabela
+                        print("                    TABELA NUTRICIONAL")
+                        print(70*"-")
                         print("[1] Consultar alimentos")
                         print("[0] Sair para o menu")
                         print(50*"=")
 
-                        escolha_menu = int(input("Digite o indice correspondente ao que deseja: ")) #Escolhe se quer consultar ou adicionar
+                        # Escolhe se quer consultar ou adicionar
+                        escolha_menu = int(
+                            input("Digite o indice correspondente ao que deseja: "))
 
-                        if escolha_menu == 1: #IF da consulta
+                        if escolha_menu == 0:
+                            permanecer_tabela = False
+                            os.system("cls")
+
+                        elif escolha_menu == 1: #IF da consulta
+                            
                             os.system("cls")
                             time.sleep(1)
 
-                            print(70*"=") #Cabeçario da Tabela
+                            print(70*"=")  # Cabeçario da Tabela
                             print("                TABELA NUTRICIONAL")
-                            print(50*"-")
-                            for i in range(len(Tabela_Nutricional_Atualizada.listaNomesAlimentos)): #FOR para apresentar alimentos da Tabela
-                                print(f"[{i}]", Tabela_Nutricional_Atualizada.listaNomesAlimentos[i])  
-                            print(50*"-")
-                            escolha_alimento = int(input("Digite o indice do alimento para consulta: ")) #Escolhe o alimento para consulta
+                            print(70*"-")
+
+                            for i in range(config.size(config.alimento)): #FOR para apresentar alimentos da Tabela
+                                print(f"[{i}]", config.alimento[i])
                             
-                            if escolha_alimento in range(len(Tabela_Nutricional_Atualizada.listaNomesAlimentos)): #IF para puxar dados do alimento escolhido
+                            print(70*"-")
+
+                            escolha_alimento = int(input("Digite o indice do alimento para consulta: ")) #Escolhe o alimento para consulta
+
+                            if escolha_alimento in range(config.size(config.alimento)): #IF para puxar dados do alimento escolhido
                                 os.system("cls")
                                 time.sleep(1)
-                                print(70*"=") #Cabeçario da Tabela
+                                print(70*"=")  # Cabeçario da Tabela
                                 print("                TABELA NUTRICIONAL")
                                 print(70*"-")
-                                alimento_selecionado = Tabela_Nutricional_Atualizada.listaNomesAlimentos[escolha_alimento]
-                                eval(alimento_selecionado).descreverAlimento() #EVAL para tranforma str em nome de variavel e descreve-lo 
-                                print(70*"=")
+                                print(f"Em {config.quantidade_teste[escolha_alimento]}g de {config.alimento[escolha_alimento]}:") #Mostra quantidade da consulta
+                                print(70*"-")
+                                print(f"Valor energético: {config.valor_energético[escolha_alimento]}kcal") #Mostra calorias da consulta
+                                print(f"Carboidratos: {config.carboidratos[escolha_alimento]}g") #Mostra carbboidratos da consulta
+                                print(f"Proteinas: {config.proteinas[escolha_alimento]}g") #Mostra proteinas da culta
+                                print(f"Sódio: {config.sodio[escolha_alimento]}mg") #Mostra sodio da consulta
+                                print(70*"=") 
+
                                 time.sleep(1)
                                 input("Pressione ENTER para continuar")
 
-                        elif escolha_menu == 0:
-                            voltar = input("[S] para sair do sistema ").lower().startswith('s') #Retorna para o menu da Tabela, ou volta ao inicio de tudo
-                            if voltar == True:
-                                permanecer_tabela = False
+                        elif escolha_menu == 2:
+                            os.system("cls")
+
+                            print(70*"=") #Cabeçario da Tabela
+                            print("                TABELA NUTRICIONAL")
+                            print(70*"-")
+                            novo_alimeto = input("Digite o nome do alimento: ") #INPUT para nome do alimento
+                            time.sleep(0.5)
+                            print(70*"-")
+                            quantidade_nova = int(input("Digite a quantidade analisada (em gramas): ")) #INPUT para quantidade de consulta
+                            time.sleep(0.5)
+                            print(70*"-")
+                            valor_novo = float(input("Digite o valor energético (em kcal): ")) #INPUT para calorias
+                            time.sleep(0.5)
+                            print(70*"-")
+                            carboidratos_novo = float(input("Digite a quantidade de carboidratos (em gramas): ")) #INPUT para carboidratos
+                            time.sleep(0.5)
+                            print(70*"-")
+                            proteina_nova = float(input("Digite o quantidade de proteina (em gramas): ")) #INPUT para proteina
+                            time.sleep(0.5)
+                            print(70*"-")
+                            sodio_novo = float(input("Digite o quantidade de sódio (em gramas): ")) #INPUT para sodio
+                            time.sleep(1)
+                            print(70*"=")
+
+                            os.system("cls")
+                            time.sleep(1)
+                            print(70*"=") #Cabeçario da Tabela
+                            print("                TABELA NUTRICIONAL")
+                            print(70*"-")
+                            #PRINTs para mostrar os dados do novo alimento antes de adição ao sistema
+                            print(f"Em {quantidade_nova}g de {novo_alimeto}:")
+                            print(70*"-")
+                            print(f"Valor energético: {valor_novo}kcal")
+                            print(f"Carboidratos: {carboidratos_novo}g") 
+                            print(f"Proteinas: {proteina_nova}g")
+                            print(f"Sódio: {sodio_novo}mg")
+                            print(70*"=")
+
+                            adicionar = input("Confirmar a adição: Sim ou Não? ").lower().startswith('s') #Confirmação antes de adicionar o alimento
+                            if adicionar == True: #IF para adicionar os dados do novo alimento, e retornar ao inicio da tabela
+                                config.push(config.alimento, novo_alimeto)
+                                config.push(config.quantidade_teste, quantidade_nova)
+                                config.push(config.valor_energético, valor_novo)
+                                config.push(config.carboidratos, carboidratos_novo)
+                                config.push(config.proteinas, proteina_nova)
+                                config.push(config.sodio, sodio_novo)
+                            
+                            else: #ELSE caso não confirme a adição, e ver se usuário deseja permanecer na tabela
+                                print(70*"=")
+                                input("Pressione ENTER para continuar")
+                        
                         
 
-#INDICE SEM FUNÇÃO ------------------------------------------------------------------------------------------------------                        
                 elif config.escolha_do_menu_usuario_int == 7:
                     print('escolha 07')
                 else:
