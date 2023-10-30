@@ -29,3 +29,12 @@ with open(nome_do_arquivo, 'w') as arquivo:
     # Convertendo a lista em uma string pra escrever no arquivo
     for item in lista_de_treino:
         arquivo.write(item + "\n")
+
+
+imprimir_ficha = input(
+    '\n[2]Deseja imprimir o texto').lower().startswith('2')
+# time.sleep(1)
+# os.system('cls')
+
+# elif imprimir_ficha == True:
+#    config.loop_ficha_de_treino = False
