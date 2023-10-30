@@ -3,6 +3,13 @@ import config
 import time
 import os
 
+import Tabela_Nutricional_Atualizada
+from Carnes import Carnes
+from Frutas import Frutas
+from Graos import Graos
+from Liquidos import Liquidos
+from Verduras import Verduras
+
 controle_principal = True
 
 while controle_principal:
@@ -53,6 +60,8 @@ while controle_principal:
         idade = idade_do_usuario
         tmb = config.calcular_tmb(sexo_do_usuario, peso, altura, idade)
         config.loop_menu_usuario_comum = True
+
+#MENU INICIAL ------------------------------------------------------------------------------------------------------
         while config.loop_menu_usuario_comum:
             print(70*"=") #Cabeçario do Menu Inicial
             print("                             MENU INICIAL")
@@ -102,6 +111,7 @@ while controle_principal:
                                 config.loop_dicas_De_treino = False
                                 break
 
+#FICHA DE TREINO ------------------------------------------------------------------------------------------------------
                 elif config.escolha_do_menu_usuario_int == 2:
                     config.loop_ficha_de_treino = True
                     while config.loop_ficha_de_treino:
@@ -156,7 +166,8 @@ while controle_principal:
                         if sair_sistema_de_treino == True:
                             config.loop_ficha_de_treino = False
 
-                elif config.escolha_do_menu_usuario_int == 3: #Taxa de Metabolismo Basal
+#TAXA DE METABOLISMO BASAL ------------------------------------------------------------------------------------------------------
+                elif config.escolha_do_menu_usuario_int == 3: 
                     config.limpeza_e_time(2)
                     os.system('cls')
                     print(70*"=")
@@ -217,6 +228,7 @@ while controle_principal:
                         if sair_sistema_de_agua is True:
                             looping_quantidade_agua = False
 
+#DIETA ------------------------------------------------------------------------------------------------------
                 elif config.escolha_do_menu_usuario_int == 5:
                     
                     permanecer_na_dieta = True
@@ -303,113 +315,53 @@ while controle_principal:
                                 input("Pressione ENTER para continuar")
                                 os.system("cls")
 
-                #TABELA NUTRICIONAL
+#TABELA NUTRICIONAL ------------------------------------------------------------------------------------------------------
                 elif config.escolha_do_menu_usuario_int == 6:
                     
                     permanecer_tabela = True
                     while permanecer_tabela:
-                        config.limpeza_e_time(2)
-                        print(70*"=") #Cabeçario da Tabela
-                        print("                    TABELA NUTRICIONAL")
-                        print(70*"-")
+
+                        os.system("cls")
+                        print(50*"=") #Cabeçario da Tabela
+                        print("                TABELA NUTRICIONAL")
+                        print(50*"-")
                         print("[1] Consultar alimentos")
-                        print("[2] Adicionar alimentos")
                         print("[0] Sair para o menu")
-                        print(70*"=")
+                        print(50*"=")
 
                         escolha_menu = int(input("Digite o indice correspondente ao que deseja: ")) #Escolhe se quer consultar ou adicionar
 
-                        if escolha_menu == 0:
-                            permanecer_tabela = False
-                            os.system("cls")
-
-                        elif escolha_menu == 1: #IF da consulta
-                            
+                        if escolha_menu == 1: #IF da consulta
                             os.system("cls")
                             time.sleep(1)
 
                             print(70*"=") #Cabeçario da Tabela
                             print("                TABELA NUTRICIONAL")
-                            print(70*"-")
-
-                            for i in range(config.size(config.alimento)): #FOR para apresentar alimentos da Tabela
-                                print(f"[{i}]", config.alimento[i])
-                            
-                            print(70*"-")
-
+                            print(50*"-")
+                            for i in range(len(Tabela_Nutricional_Atualizada.listaNomesAlimentos)): #FOR para apresentar alimentos da Tabela
+                                print(f"[{i}]", Tabela_Nutricional_Atualizada.listaNomesAlimentos[i])  
+                            print(50*"-")
                             escolha_alimento = int(input("Digite o indice do alimento para consulta: ")) #Escolhe o alimento para consulta
-
-                            if escolha_alimento in range(config.size(config.alimento)): #IF para puxar dados do alimento escolhido
+                            
+                            if escolha_alimento in range(len(Tabela_Nutricional_Atualizada.listaNomesAlimentos)): #IF para puxar dados do alimento escolhido
                                 os.system("cls")
                                 time.sleep(1)
                                 print(70*"=") #Cabeçario da Tabela
                                 print("                TABELA NUTRICIONAL")
                                 print(70*"-")
-                                print(f"Em {config.quantidade_teste[escolha_alimento]}g de {config.alimento[escolha_alimento]}:") #Mostra quantidade da consulta
-                                print(70*"-")
-                                print(f"Valor energético: {config.valor_energético[escolha_alimento]}kcal") #Mostra calorias da consulta
-                                print(f"Carboidratos: {config.carboidratos[escolha_alimento]}g") #Mostra carbboidratos da consulta
-                                print(f"Proteinas: {config.proteinas[escolha_alimento]}g") #Mostra proteinas da culta
-                                print(f"Sódio: {config.sodio[escolha_alimento]}mg") #Mostra sodio da consulta
-                                print(70*"=") 
-
+                                alimento_selecionado = Tabela_Nutricional_Atualizada.listaNomesAlimentos[escolha_alimento]
+                                eval(alimento_selecionado).descreverAlimento() #EVAL para tranforma str em nome de variavel e descreve-lo 
+                                print(70*"=")
                                 time.sleep(1)
                                 input("Pressione ENTER para continuar")
 
-                        elif escolha_menu == 2:
-                            os.system("cls")
-
-                            print(70*"=") #Cabeçario da Tabela
-                            print("                TABELA NUTRICIONAL")
-                            print(70*"-")
-                            novo_alimeto = input("Digite o nome do alimento: ") #INPUT para nome do alimento
-                            time.sleep(0.5)
-                            print(70*"-")
-                            quantidade_nova = int(input("Digite a quantidade analisada (em gramas): ")) #INPUT para quantidade de consulta
-                            time.sleep(0.5)
-                            print(70*"-")
-                            valor_novo = float(input("Digite o valor energético (em kcal): ")) #INPUT para calorias
-                            time.sleep(0.5)
-                            print(70*"-")
-                            carboidratos_novo = float(input("Digite a quantidade de carboidratos (em gramas): ")) #INPUT para carboidratos
-                            time.sleep(0.5)
-                            print(70*"-")
-                            proteina_nova = float(input("Digite o quantidade de proteina (em gramas): ")) #INPUT para proteina
-                            time.sleep(0.5)
-                            print(70*"-")
-                            sodio_novo = float(input("Digite o quantidade de sódio (em gramas): ")) #INPUT para sodio
-                            time.sleep(1)
-                            print(70*"=")
-
-                            os.system("cls")
-                            time.sleep(1)
-                            print(70*"=") #Cabeçario da Tabela
-                            print("                TABELA NUTRICIONAL")
-                            print(70*"-")
-                            #PRINTs para mostrar os dados do novo alimento antes de adição ao sistema
-                            print(f"Em {quantidade_nova}g de {novo_alimeto}:")
-                            print(70*"-")
-                            print(f"Valor energético: {valor_novo}kcal")
-                            print(f"Carboidratos: {carboidratos_novo}g") 
-                            print(f"Proteinas: {proteina_nova}g")
-                            print(f"Sódio: {sodio_novo}mg")
-                            print(70*"=")
-
-                            adicionar = input("Confirmar a adição: Sim ou Não? ").lower().startswith('s') #Confirmação antes de adicionar o alimento
-                            if adicionar == True: #IF para adicionar os dados do novo alimento, e retornar ao inicio da tabela
-                                config.push(config.alimento, novo_alimeto)
-                                config.push(config.quantidade_teste, quantidade_nova)
-                                config.push(config.valor_energético, valor_novo)
-                                config.push(config.carboidratos, carboidratos_novo)
-                                config.push(config.proteinas, proteina_nova)
-                                config.push(config.sodio, sodio_novo)
-                            
-                            else: #ELSE caso não confirme a adição, e ver se usuário deseja permanecer na tabela
-                                print(70*"=")
-                                input("Pressione ENTER para continuar")
-                        
+                        elif escolha_menu == 0:
+                            voltar = input("[S] para sair do sistema ").lower().startswith('s') #Retorna para o menu da Tabela, ou volta ao inicio de tudo
+                            if voltar == True:
+                                permanecer_tabela = False
                         
 
+#INDICE SEM FUNÇÃO ------------------------------------------------------------------------------------------------------                        
                 elif config.escolha_do_menu_usuario_int == 7:
                     print('escolha 07')
                 else:
