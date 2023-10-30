@@ -33,7 +33,6 @@ while permanecer_tabela:
     print("                TABELA NUTRICIONAL")
     print(50*"-")
     print("[1] Consultar alimentos")
-    print("[2] Adicionar alimentos")
     print("[0] Sair para o menu")
     print(50*"=")
 
@@ -68,6 +67,6 @@ while permanecer_tabela:
         print()
     
     elif escolha_menu == 0:
-        voltar = input("[[S] para sair do sistema ").lower().startswith('s') #Retorna para o menu da Tabela, ou volta ao inicio de tudo
+        voltar = input("[S] para sair do sistema ").lower().startswith('s') #Retorna para o menu da Tabela, ou volta ao inicio de tudo
         if voltar == True:
             permanecer_tabela = False
