@@ -3,29 +3,9 @@ import config
 import time
 import os
 
-from Carnes import Carnes
-from Frutas import Frutas
-from Graos import Graos
-from Liquidos import Liquidos
-from Verduras import Verduras
-
-#CRIANDO OS ALIMENTOS
-Frango = Carnes("Frango", 100, 159, 0, 32, 0, 50)
-ArrozBranco = Graos("ArrozBranco", 100, 32, 7.03, 0.63, 0.40, 0.25)
-FeijãoPreto = Graos("FeijãoPreto", 100, 77, 14, 4.5, 8.4, 1.9)
-BatataDoce = Verduras("BatataDoce", 100, 53.90, 12.88, 0.42, 2.10)
-Banana = Frutas("Banana", 100, 39.60, 10.32, 0.52, 0)
-Maça = Frutas("Maça", 100, 67.60, 17.95, 0.34, 1.30)
-
-#LISTA PARA ARMAZENAR OS NOMES DOS ALIMENTOS
-listaNomesAlimentos = []
-listaNomesAlimentos.append(Frango._nome)
-listaNomesAlimentos.append(ArrozBranco._nome)
-listaNomesAlimentos.append(FeijãoPreto._nome)
-listaNomesAlimentos.append(BatataDoce._nome)
-listaNomesAlimentos.append(Banana._nome)
-listaNomesAlimentos.append(Maça._nome)
-
+import Alimentos
+from Alimentos import Carnes, Frutas, Graos, Liquidos, Verduras
+from Alimentos import Frango, ArrozBranco, FeijãoPreto,BatataDoce, Banana, Maça
 
 controle_principal = True
 
@@ -384,18 +364,18 @@ while controle_principal:
                             print(70*"=") #Cabeçario da Tabela
                             print("                TABELA NUTRICIONAL")
                             print(50*"-")
-                            for i in range(len(listaNomesAlimentos)): #FOR para apresentar alimentos da Tabela
-                                print(f"[{i}]", listaNomesAlimentos[i])  
+                            for i in range(len(Alimentos.listaNomesAlimentos)): #FOR para apresentar alimentos da Tabela
+                                print(f"[{i}]", Alimentos.listaNomesAlimentos[i])  
                             print(50*"-")
                             escolha_alimento = int(input("Digite o indice do alimento para consulta: ")) #Escolhe o alimento para consulta
                             
-                            if escolha_alimento in range(len(listaNomesAlimentos)): #IF para puxar dados do alimento escolhido
+                            if escolha_alimento in range(len(Alimentos.listaNomesAlimentos)): #IF para puxar dados do alimento escolhido
                                 os.system("cls")
                                 time.sleep(1)
                                 print(70*"=") #Cabeçario da Tabela
                                 print("                TABELA NUTRICIONAL")
                                 print(70*"-")
-                                alimento_selecionado = listaNomesAlimentos[escolha_alimento]
+                                alimento_selecionado = Alimentos.listaNomesAlimentos[escolha_alimento]
                                 eval(alimento_selecionado).descreverAlimento() #EVAL para tranforma str em nome de variavel e descreve-lo 
                                 print(70*"=")
                                 time.sleep(1)
@@ -404,6 +384,7 @@ while controle_principal:
                         elif escolha_menu == 0:
                             voltar = input("[S] para sair do sistema ").lower().startswith('s') #Retorna para o menu da Tabela, ou volta ao inicio de tudo
                             if voltar == True:
+                                os.system("cls")
                                 permanecer_tabela = False
                         
                         
