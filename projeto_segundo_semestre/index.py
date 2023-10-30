@@ -5,7 +5,7 @@ import os
 
 import Alimentos
 from Alimentos import Carnes, Frutas, Graos, Liquidos, Verduras
-from Alimentos import Frango, ArrozBranco, FeijãoPreto,BatataDoce, Banana, Maça
+from Alimentos import Frango, ArrozBranco, FeijãoPreto,BatataDoce, Banana, Maça, Leite
 
 controle_principal = True
 

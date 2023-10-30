@@ -137,6 +137,7 @@ FeijãoPreto = Graos("FeijãoPreto", 100, 77, 14, 4.5, 8.4, 1.9)
 BatataDoce = Verduras("BatataDoce", 100, 53.90, 12.88, 0.42, 2.10)
 Banana = Frutas("Banana", 100, 39.60, 10.32, 0.52, 0)
 Maça = Frutas("Maça", 100, 67.60, 17.95, 0.34, 1.30)
+Leite = Liquidos("Leite", 100, 120, 9.60, 6, 130, 6.40)
 
 #LISTA PARA ARMAZENAR OS NOMES DOS ALIMENTOS
 listaNomesAlimentos = []
@@ -146,3 +147,4 @@ listaNomesAlimentos.append(FeijãoPreto._nome)
 listaNomesAlimentos.append(BatataDoce._nome)
 listaNomesAlimentos.append(Banana._nome)
 listaNomesAlimentos.append(Maça._nome)
+listaNomesAlimentos.append(Leite._nome)
