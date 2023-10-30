@@ -61,9 +61,6 @@ while permanecer_tabela:
             print(70*"=")
             time.sleep(1)
             input("Pressione ENTER para continuar")
-
-    elif escolha_menu == 2:
-        print()
     
     elif escolha_menu == 0:
         voltar = input("[S] para sair do sistema ").lower().startswith('s') #Retorna para o menu da Tabela, ou volta ao inicio de tudo
