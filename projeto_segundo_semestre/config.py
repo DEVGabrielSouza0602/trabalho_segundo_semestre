@@ -113,3 +113,19 @@ proteinas = [26, 2.7, 4.3, 2, 1.1, 0.3, 13]
 sodio = [153, 1, 99, 36, 1, 1, 400]
 
 # Leitura e escrita de Arquivos
+
+
+def escrever_treinos_em_arquivo(dicionario_de_treinos, dia_digitado):
+    if escolha_menu_ficha == 2:
+        if dia_digitado in dicionario_de_treinos:
+            treinos_do_dia = dicionario_de_treinos[dia_digitado]
+            nome_do_arquivo = "treinos_" + dia_digitado + ".txt"
+
+            with open(nome_do_arquivo, 'w') as arquivo:
+                for treino in treinos_do_dia:
+                    arquivo.write(treino + "\n")
+
+            print(
+                f"Os treinos do dia {dia_digitado} foram salvos em {nome_do_arquivo}")
+        else:
+            print(f"O dia {dia_digitado} não está no dicionário de treinos.")

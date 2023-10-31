@@ -5,7 +5,7 @@ import os
 
 import Alimentos
 from Alimentos import Carnes, Frutas, Graos, Liquidos, Verduras
-from Alimentos import Frango, ArrozBranco, FeijãoPreto,BatataDoce, Banana, Maça, Leite
+from Alimentos import Frango, ArrozBranco, FeijãoPreto, BatataDoce, Banana, Maça, Leite
 
 controle_principal = True
 
@@ -58,7 +58,7 @@ while controle_principal:
         tmb = config.calcular_tmb(sexo_do_usuario, peso, altura, idade)
         config.loop_menu_usuario_comum = True
 
-#MENU INICIAL ------------------------------------------------------------------------------------------------------
+# MENU INICIAL ------------------------------------------------------------------------------------------------------
         while config.loop_menu_usuario_comum:
             print(70*"=")  # Cabeçario do Menu Inicial
             print("                             MENU INICIAL")
@@ -108,7 +108,7 @@ while controle_principal:
                                 config.loop_dicas_De_treino = False
                                 break
 
-#FICHA DE TREINO ------------------------------------------------------------------------------------------------------
+# FICHA DE TREINO ------------------------------------------------------------------------------------------------------
                 elif config.escolha_do_menu_usuario_int == 2:
                     config.loop_ficha_de_treino = True
                     while config.loop_ficha_de_treino:
@@ -156,23 +156,39 @@ while controle_principal:
 
                         print("\n", 69*"=")
                         print('\n[1]Deseja sair')
-
-                        sair_sistema_de_treino = input(
-                            '[3]Deseja ver outro treino [ENTER] ').lower().startswith('1')
-                        time.sleep(1)
-                        os.system('cls')
-
-                        imprimir_ficha = input(
-                            '\n[2]Deseja imprimir o texto').lower().startswith('2')
-                        time.sleep(1)
-                        os.system('cls')
-
-                        if sair_sistema_de_treino == True:
+                        print('\n[2]Deseja imprimir o texto')
+                        print('\n[3]Deseja ver outro treino')
+                        escolha_menu_ficha = int(
+                            input("Digite o indice correspondente ao que deseja: "))
+                        if escolha_menu_ficha == 1:
+                            sair_sistema_de_treino = True
                             config.loop_ficha_de_treino = False
-                        elif imprimir_ficha == True:
+                            time.sleep(1)
+                            os.system('cls')
+                        elif escolha_menu_ficha == 2:
+                            if dia_digitado in config.dicionario_de_treinos:
+                                treinos_do_dia = config.dicionario_de_treinos[dia_digitado]
+                                nome_do_arquivo = "treinos_" + \
+                                    str(dia_digitado) + ".txt"
+
+                                with open(nome_do_arquivo, 'w') as arquivo:
+                                    for treino in treinos_do_dia:
+                                        arquivo.write(treino + "\n")
+
+                                print(
+                                    f"Os treinos do dia {dia_digitado} foram salvos em {nome_do_arquivo}")
+                            else:
+                                print(
+                                    f"O dia {dia_digitado} não está no dicionário de treinos.")
+                            sair_sistema_de_treino = True
                             config.loop_ficha_de_treino = False
 
-                elif config.escolha_do_menu_usuario_int == 3: #Taxa de Metabolismo Basal
+                            time.sleep(1)
+                            os.system('cls')
+                        elif escolha_menu_ficha == 3:
+                            config.loop_ficha_de_treino = True
+
+                elif config.escolha_do_menu_usuario_int == 3:  # Taxa de Metabolismo Basal
                     config.limpeza_e_time(2)
                     os.system('cls')
                     print(70*"=")
@@ -236,7 +252,7 @@ while controle_principal:
                         if sair_sistema_de_agua is True:
                             looping_quantidade_agua = False
 
-#DIETA ------------------------------------------------------------------------------------------------------
+# DIETA ------------------------------------------------------------------------------------------------------
                 elif config.escolha_do_menu_usuario_int == 5:
 
                     permanecer_na_dieta = True
@@ -339,7 +355,7 @@ while controle_principal:
                                 input("Pressione ENTER para continuar")
                                 os.system("cls")
 
-                #TABELA NUTRICIONAL
+                # TABELA NUTRICIONAL
                 elif config.escolha_do_menu_usuario_int == 6:
 
                     permanecer_tabela = True
@@ -347,46 +363,53 @@ while controle_principal:
                     while permanecer_tabela:
 
                         os.system("cls")
-                        print(50*"=") #Cabeçario da Tabela
+                        print(50*"=")  # Cabeçario da Tabela
                         print("                TABELA NUTRICIONAL")
                         print(50*"-")
                         print("[1] Consultar alimentos")
                         print("[0] Sair para o menu")
                         print(50*"=")
 
-                        escolha_menu = int(input("Digite o indice correspondente ao que deseja: ")) #Escolhe se quer consultar ou adicionar
+                        # Escolhe se quer consultar ou adicionar
+                        escolha_menu = int(
+                            input("Digite o indice correspondente ao que deseja: "))
 
-                        if escolha_menu == 1: #IF da consulta
+                        if escolha_menu == 1:  # IF da consulta
                             os.system("cls")
                             time.sleep(1)
 
-                            print(70*"=") #Cabeçario da Tabela
+                            print(70*"=")  # Cabeçario da Tabela
                             print("                TABELA NUTRICIONAL")
                             print(50*"-")
-                            for i in range(len(Alimentos.listaNomesAlimentos)): #FOR para apresentar alimentos da Tabela
-                                print(f"[{i}]", Alimentos.listaNomesAlimentos[i])  
+                            # FOR para apresentar alimentos da Tabela
+                            for i in range(len(Alimentos.listaNomesAlimentos)):
+                                print(
+                                    f"[{i}]", Alimentos.listaNomesAlimentos[i])
                             print(50*"-")
-                            escolha_alimento = int(input("Digite o indice do alimento para consulta: ")) #Escolhe o alimento para consulta
-                            
-                            if escolha_alimento in range(len(Alimentos.listaNomesAlimentos)): #IF para puxar dados do alimento escolhido
+                            # Escolhe o alimento para consulta
+                            escolha_alimento = int(
+                                input("Digite o indice do alimento para consulta: "))
+
+                            # IF para puxar dados do alimento escolhido
+                            if escolha_alimento in range(len(Alimentos.listaNomesAlimentos)):
                                 os.system("cls")
                                 time.sleep(1)
-                                print(70*"=") #Cabeçario da Tabela
+                                print(70*"=")  # Cabeçario da Tabela
                                 print("                TABELA NUTRICIONAL")
                                 print(70*"-")
                                 alimento_selecionado = Alimentos.listaNomesAlimentos[escolha_alimento]
-                                eval(alimento_selecionado).descreverAlimento() #EVAL para tranforma str em nome de variavel e descreve-lo 
+                                # EVAL para tranforma str em nome de variavel e descreve-lo
+                                eval(alimento_selecionado).descreverAlimento()
                                 print(70*"=")
                                 time.sleep(1)
                                 input("Pressione ENTER para continuar")
-                        
+
                         elif escolha_menu == 0:
-                            voltar = input("[S] para sair do sistema ").lower().startswith('s') #Retorna para o menu da Tabela, ou volta ao inicio de tudo
+                            voltar = input("[S] para sair do sistema ").lower().startswith(
+                                's')  # Retorna para o menu da Tabela, ou volta ao inicio de tudo
                             if voltar == True:
                                 os.system("cls")
                                 permanecer_tabela = False
-                        
-                        
 
                 elif config.escolha_do_menu_usuario_int == 7:
                     print('escolha 07')
