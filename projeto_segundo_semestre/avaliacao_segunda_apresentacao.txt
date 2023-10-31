@@ -16,15 +16,13 @@ Codificação (4,0)
 
 • Herança (0,5)
 -> IDEIAS <-
---> SUPERCLASS == ALIMENTOS
----> SUBCLASS == FRUTAS - VERDURAS
+
 
 • Abstração (0,5)
 -> IDEIAS <-
+--> SUPERCLASS == ALIMENTOS
+---> SUBCLASS == FRUTAS - VERDURAS
 
----
-----
----
 
 • Polimorfismo (0,5)
 -> IDEIAS <-

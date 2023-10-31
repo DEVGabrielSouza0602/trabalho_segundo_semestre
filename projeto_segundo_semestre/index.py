@@ -68,7 +68,6 @@ while controle_principal:
             print('[3] Taxa De Metabolismo Basal')
             print('[4] Quantidade de Agua diario')
             print('[5] Dieta Basica')
-
             print('[6] Tabela Nutricional')
             print('[0] Deslogar')
             print(70*"=")
