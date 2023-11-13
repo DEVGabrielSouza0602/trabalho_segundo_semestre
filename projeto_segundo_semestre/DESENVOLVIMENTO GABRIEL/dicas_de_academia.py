@@ -1,47 +1,51 @@
 
-#CLASSE MÃE / HERANÇA SIMPLES---------------------------------------------------
+# CLASSE MÃE / HERANÇA SIMPLES---------------------------------------------------
+import time
+import os
+
+
 class Dicas:
-    def __init__ (self, setor):
+    def __init__(self, setor):
         self._setor = setor
 
     def imprimir(self):
         pass
 
-#CLASSE FILHA ------------------------------------------------------------------
+# CLASSE FILHA ------------------------------------------------------------------
+
+
 class DicasAlimentação:
-    def __init__ (self, nome, texto):
-        super().__init__(nome, tipo = "alimentação")
+    def __init__(self, nome, texto):
+        super().__init__(nome, tipo="alimentação")
         self._texto = texto
 
-    def imprimir (self, nome, texto):
+    def imprimir(self, nome, texto):
         print(
             f'Tema: {self._nome}\n'
             f'{self._texto}'
         )
 
 
-#CLASSE FILHA ------------------------------------------------------------------
+# CLASSE FILHA ------------------------------------------------------------------
 class DicasExercícios:
-    def __init__ (self, nome, objetivo, texto):
-        super().__init__(nome, tipo = "exercício")
+    def __init__(self, nome, objetivo, texto):
+        super().__init__(nome, tipo="exercício")
         self._objetivo = objetivo
         self._texto = texto
 
-    def imprimir (self, nome, obejetivo, texto):
+    def imprimir(self, nome, obejetivo, texto):
         print(
             f'Tema: {self._nome}\n'
             f'Objetivo: {self._objetivo}\n'
             f'{self._texto}'
         )
 
-#CRIANDO OBJETOS ---------------------------------------------------------------
-MassaCorporal = DicasAlimentação('Ganho de Massa Muscular', '')
 
+# CRIANDO OBJETOS ---------------------------------------------------------------
+MassaCorporal = DicasAlimentação(
+    'Ganho de Massa Muscular', '"Hidratação é chave. Água mantém seus músculos funcionando adequadamente e ajuda na recuperação pós-treino."')
 
-
-import os
-import time
-
+"Suplementos podem ajudar, mas não substituem uma dieta equilibrada. Consulte um nutricionista para orientações específicas."
 dicas_de_treino = ['abc', 'fed', 'ghi']
 loop_dicas_De_treino = True
 
