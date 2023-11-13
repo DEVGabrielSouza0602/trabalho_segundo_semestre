@@ -46,6 +46,7 @@ MassaCorporal = DicasAlimentação(
     'Ganho de Massa Muscular', '"Hidratação é chave. Água mantém seus músculos funcionando adequadamente e ajuda na recuperação pós-treino."')
 
 "Suplementos podem ajudar, mas não substituem uma dieta equilibrada. Consulte um nutricionista para orientações específicas."
+set
 dicas_de_treino = ['abc', 'fed', 'ghi']
 loop_dicas_De_treino = True
 
