@@ -1,3 +1,44 @@
+
+#CLASSE MÃE / HERANÇA SIMPLES---------------------------------------------------
+class Dicas:
+    def __init__ (self, setor):
+        self._setor = setor
+
+    def imprimir(self):
+        pass
+
+#CLASSE FILHA ------------------------------------------------------------------
+class DicasAlimentação:
+    def __init__ (self, nome, texto):
+        super().__init__(nome, tipo = "alimentação")
+        self._texto = texto
+
+    def imprimir (self, nome, texto):
+        print(
+            f'Tema: {self._nome}\n'
+            f'{self._texto}'
+        )
+
+
+#CLASSE FILHA ------------------------------------------------------------------
+class DicasExercícios:
+    def __init__ (self, nome, objetivo, texto):
+        super().__init__(nome, tipo = "exercício")
+        self._objetivo = objetivo
+        self._texto = texto
+
+    def imprimir (self, nome, obejetivo, texto):
+        print(
+            f'Tema: {self._nome}\n'
+            f'Objetivo: {self._objetivo}\n'
+            f'{self._texto}'
+        )
+
+#CRIANDO OBJETOS ---------------------------------------------------------------
+MassaCorporal = DicasAlimentação('Ganho de Massa Muscular', '')
+
+
+
 import os
 import time
 
