@@ -109,7 +109,7 @@ while controle_principal:
                                     time.sleep(1)
                                     os.system('cls')
                                     if pular_ou_sair is True:
-                                        loop_dicas_De_treino = False
+                                        config.loop_dicas_De_treino = False
 
                     #DETECTA DICAS DE EXERCICIO E IMPRIME-------------------------------------------
                                 for dica in listaDicasExercícios:
@@ -124,7 +124,7 @@ while controle_principal:
                                     time.sleep(1)
                                     os.system('cls')
                                     if pular_ou_sair is True:
-                                        loop_dicas_De_treino = False
+                                        config.loop_dicas_De_treino = False
                                         break
 
 # FICHA DE TREINO ------------------------------------------------------------------------------------------------------
