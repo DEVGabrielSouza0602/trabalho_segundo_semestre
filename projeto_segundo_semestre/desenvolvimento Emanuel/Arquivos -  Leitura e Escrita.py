@@ -21,12 +21,12 @@ except Exception as e:
 # [1] Selecionar outro treino, [2] Imprimir Treino, [3] Sair da Ficha de Treino
 lista_de_treino = []
 
-# Nomeando o arquivo
+#Nomeando o arquivo
 nome_do_arquivo = "lista_de_treino.txt"
 
-# Abrindo em escrita(w)
+#Abrindo em escrita(w)
 with open(nome_do_arquivo, 'w') as arquivo:
-    # Convertendo a lista em uma string pra escrever no arquivo
+    #Convertendo a lista em uma string pra escrever no arquivo
     for item in lista_de_treino:
         arquivo.write(item + "\n")
 

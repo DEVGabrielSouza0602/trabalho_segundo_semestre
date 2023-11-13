@@ -35,6 +35,9 @@ Codificação (4,0)
 
 
 
+
+
+
 • Complexidade da Implementação (1,0)
 Apresentação (2,0)
 • Defesa do Projeto (demonstrar conhecimento na explicação das estruturas de
