@@ -7,6 +7,9 @@ import Alimentos
 from Alimentos import Carnes, Frutas, Graos, Liquidos, Verduras
 from Alimentos import Frango, ArrozBranco, FeijãoPreto, BatataDoce, Banana, Maça, Leite
 
+import DicasAcademia
+from DicasAcademia import DicasAlimentação, DicasExercícios
+
 controle_principal = True
 
 while controle_principal:
@@ -91,22 +94,38 @@ while controle_principal:
                     config.loop_dicas_De_treino = True
                     config.limpeza_e_time(2)
                     while config.loop_dicas_De_treino:
-                        for i in config.dicas_de_treino:
-                            print(70*"=")
-                            print('                         SISTEMA DE DICAS:')
-                            print(70*"-")
-                            time.sleep(1)
-                            print(i)
-                            time.sleep(2)
-                            print(70*"=")
-                            print('Pressione [ENTER] para proxima dica...')
-                            pular_ou_sair = input(
-                                '[S] para sair do sistema... ').lower().startswith('s')
-                            time.sleep(1)
-                            os.system('cls')
-                            if pular_ou_sair is True:
-                                config.loop_dicas_De_treino = False
-                                break
+                        for dica in DicasAcademia.listaDicasAlimentação or DicasAcademia.listaDicasExercícios:
+
+                    #DETECTA DICAS DE ALIMENTAÇÃO E IMPRIME-------------------------------------------
+                                for dica in DicasAcademia.listaDicasAlimentação:
+                                    print('SISTEMA DE DICAS:'
+                                        )
+                                    time.sleep(1)
+                                    eval(dica).imprimir(dica)
+                                    time.sleep(1)
+                                    print('Pressione [ENTER] para proxima dica...')
+                                    pular_ou_sair = input(
+                                        '[S] para sair do sistema... ').lower().startswith('s')
+                                    time.sleep(1)
+                                    os.system('cls')
+                                    if pular_ou_sair is True:
+                                        loop_dicas_De_treino = False
+
+                    #DETECTA DICAS DE EXERCICIO E IMPRIME-------------------------------------------
+                                for dica in listaDicasExercícios:
+                                    print('SISTEMA DE DICAS:'
+                                        )
+                                    time.sleep(1)
+                                    eval(dica).imprimir(dica, eval(dica)._objetivo)
+                                    time.sleep(1)
+                                    print('Pressione [ENTER] para proxima dica...')
+                                    pular_ou_sair = input(
+                                        '[S] para sair do sistema... ').lower().startswith('s')
+                                    time.sleep(1)
+                                    os.system('cls')
+                                    if pular_ou_sair is True:
+                                        loop_dicas_De_treino = False
+                                        break
 
 # FICHA DE TREINO ------------------------------------------------------------------------------------------------------
                 elif config.escolha_do_menu_usuario_int == 2:
