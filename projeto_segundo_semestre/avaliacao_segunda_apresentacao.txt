@@ -1,36 +1,39 @@
 Distribuição dos pesos da atividade
 Codificação (4,0)
 
-• Arquivos – Leitura e Escrita (1,0)
+
+• Arquivos – Leitura e Escrita (1,0)- emanuel
 --
 ---
 ----
 ---
 --
 
-• Classe e Objeto (0,5)
+• Classe e Objeto (0,5) - felipe
 -> IDEIAS <-
 --> ALIMENTOS
 --> USUARIOS 
 
 • Herança (0,5)
 -> IDEIAS <-
---> SUPERCLASS == ALIMENTOS
----> SUBCLASS == FRUTAS - VERDURAS
+
 
 • Abstração (0,5)
 -> IDEIAS <-
+--> SUPERCLASS == ALIMENTOS
+---> SUBCLASS == FRUTAS - VERDURAS
 
----
-----
----
 
 • Polimorfismo (0,5)
 -> IDEIAS <-
 --> SUPERCLASS == ALIMENTOS
 ---> SUBCLASS == PRE TREINO - POS TREINO - PRE TREINO E POS TREINO
 
-• Seminário de Algoritmos (1,5)??????????
+• Seminário de Algoritmos (1,5) - gabriel
+
+
+
+
 
 
 

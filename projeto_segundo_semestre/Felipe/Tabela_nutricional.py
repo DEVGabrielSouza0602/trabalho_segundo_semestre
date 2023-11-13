@@ -4,13 +4,11 @@ import time
 def verificar_vazio(lista):
     return len(lista) == 0
 
-
 def push(lista, item):
     lista.append(item)
 
 def size(lista):
     return len(lista)
-
 
 alimento = ['Frango', 'Arroz branco', 'Feijão preto', 'Batata doce', 'Banana','Maça', 'Pão integral']
 quantidade_teste = [100, 100, 100, 100, 100, 100, 100]
