@@ -48,7 +48,9 @@ Hidratação = DicasAlimentação(
 Suplementos = DicasAlimentação(
     'Suplementos', 'Suplementos podem ajudar, mas não substituem uma dieta equilibrada. Consulte um nutricionista para orientações específicas.')
 
-
+"Intervalos de alta intensidade: alternar entre períodos de alta e baixa intensidade pode acelerar a queima de gordura."
+"Combine treinos de cardio e musculação para maximizar a queima de calorias e tonificar o corpo."
+aa
 dicas_de_treino = ['abc', 'fed', 'ghi']
 loop_dicas_De_treino = True
 
