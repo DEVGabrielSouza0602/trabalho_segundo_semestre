@@ -102,10 +102,13 @@ while controle_principal:
                             if verificacao == 0:
                                 for dica in DicasAcademia.listaDicasAlimentação:
                                     if verificacao == 0:
+                                        print(70*"=")
                                         print('SISTEMA DE DICAS:'
                                             )
+                                        print(70*"-")
                                         time.sleep(1)
                                         eval(dica).imprimir(dica)
+                                        print(70*"=")
                                         time.sleep(1)
                                         print('Pressione [ENTER] para proxima dica...')
                                         pular_ou_sair = input(
@@ -120,10 +123,13 @@ while controle_principal:
                         #DETECTA DICAS DE EXERCICIO E IMPRIME-------------------------------------------
                                     for dica in DicasAcademia.listaDicasExercícios:
                                         if verificacao == 0:
+                                            print(70*"=")
                                             print('SISTEMA DE DICAS:'
                                                 )
+                                            print(70*"-")
                                             time.sleep(1)
                                             eval(dica).imprimir(dica, eval(dica)._objetivo)
+                                            print(70*"-")
                                             time.sleep(1)
                                             print('Pressione [ENTER] para proxima dica...')
                                             pular_ou_sair = input(
