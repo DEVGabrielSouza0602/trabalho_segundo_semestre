@@ -146,7 +146,7 @@ while controle_principal:
                 elif config.escolha_do_menu_usuario_int == 2:
                     config.loop_ficha_de_treino = True
                     while config.loop_ficha_de_treino:
-                        time.sleep(2)
+                        time.sleep(1)
                         os.system('cls')
                         print(70*"=")
                         print('                       FICHA DE TREINO!')
@@ -163,18 +163,18 @@ while controle_principal:
                             if dia_digitado < 0 or dia_digitado > 4:
                                 print(70*"-")
                                 print('Dia não disponivel para treino..')
-                                time.sleep(1.5)
+                                time.sleep(1)
                                 os.system('cls')
                             else:
                                 print(70*"-")
                                 print('Dia disponivel para treino..')
-                                time.sleep(1.5)
+                                time.sleep(1)
                                 os.system('cls')
                                 config.dia_digitado_corretamente = True
                         except ValueError:
                             print(70*"-")
                             print('Insira apenas numeros...')
-                            time.sleep(1.5)
+                            time.sleep(1)
                             os.system('cls')
 
                         for numero, nome in enumerate(config.dias_da_semana_ficha_de_treino):
@@ -232,7 +232,7 @@ while controle_principal:
                             config.loop_ficha_de_treino = True
 
                 elif config.escolha_do_menu_usuario_int == 3:  # Taxa de Metabolismo Basal
-                    config.limpeza_e_time(2)
+                    config.limpeza_e_time(1)
                     os.system('cls')
                     print(70*"=")
                     print("                     TAXA DE METABOLISMO BASAL")
@@ -248,7 +248,7 @@ while controle_principal:
                     input("Pressione ENTER para continuar")
                     os.system("cls")
                 elif config.escolha_do_menu_usuario_int == 4:
-                    config.limpeza_e_time(2)
+                    config.limpeza_e_time(1)
                     looping_quantidade_agua = True
                     while looping_quantidade_agua:
                         peso = float(peso_do_usuario)
@@ -265,7 +265,7 @@ while controle_principal:
                             input("Digite o número da opção desejada: "))
 
                         # calcula a quantidade recomendada de água com base na escolha do usuário
-                        config.limpeza_e_time(2)
+                        config.limpeza_e_time(1)
                         print(70*"=")
                         print("                  CÁLCULO DE ÁGUA")
                         print(70*"-")
@@ -299,7 +299,7 @@ while controle_principal:
                 elif config.escolha_do_menu_usuario_int == 5:
 
                     permanecer_na_dieta = True
-                    config.limpeza_e_time(2)
+                    config.limpeza_e_time(1)
 
                     while permanecer_na_dieta:
                         print(70*"=")  # Cabeçario das Dietas
@@ -458,22 +458,22 @@ while controle_principal:
                     print('escolha 07')
                 else:
                     print('Numero nao esta listado')
-                    config.limpeza_e_time(2)
+                    config.limpeza_e_time(1)
             except ValueError:
                 print('Digite um numero disponivel !!!')
-                config.limpeza_e_time(2)
+                config.limpeza_e_time(1)
 
     while config.login_usuario_master_efetuado:
         print(f'Ola {usuario_inserido}, seja bem vindo')
-        config.limpeza_e_time(2)
+        config.limpeza_e_time(1)
 
     sair_tela_de_login = input(
         'Deseja sair do sistema: [S] ').lower().startswith('s')
     if sair_tela_de_login:
         time.sleep(1)
         print('Saindo do sistema. Até logo.')
-        config.limpeza_e_time(2)
+        config.limpeza_e_time(1)
         controle_principal = False
     else:
         print('Reiniciando o sistema...')
-        config.limpeza_e_time(2)
+        config.limpeza_e_time(1)
