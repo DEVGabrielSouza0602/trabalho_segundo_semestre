@@ -9,6 +9,7 @@ from Alimentos import Frango, ArrozBranco, FeijãoPreto, BatataDoce, Banana, Ma�
 
 import DicasAcademia
 from DicasAcademia import DicasAlimentação, DicasExercícios
+from DicasAcademia import Hidratação, Suplementos, Intervalos, Cardio
 
 controle_principal = True
 
@@ -26,7 +27,7 @@ while controle_principal:
         config.login_usuario_master_efetuado = True
     else:
         print('Usuario ou senha incorreto.')
-        config.limpeza_e_time(3)
+        config.limpeza_e_time(1)
 
     while config.login_usuario_comum_efetuado:
         config.loop_ficha_de_treino = True
@@ -35,7 +36,7 @@ while controle_principal:
         print("                      LOGIN FEITO COM SUCESSO")
         print(70*"=")
         print(f'OLÁ {usuario_inserido}, seja bem vindo!')
-        config.limpeza_e_time(3)
+        config.limpeza_e_time(1)
         print(70*"=")  # Cabeçario de solicitação de informações
         print("                       INFORMAÇÕES CADASTRAIS")
         print(70*"-")
@@ -49,7 +50,7 @@ while controle_principal:
 
         print('Armazenado seus dados, só um momento...')
         print(70*"=")
-        config.limpeza_e_time(3)
+        config.limpeza_e_time(1)
         config.usuario_e_seus_dados['Nome'] = nome_do_usuario
         config.usuario_e_seus_dados['Idade'] = idade_do_usuario
         config.usuario_e_seus_dados['Peso'] = peso_do_usuario
@@ -80,52 +81,60 @@ while controle_principal:
                 config.escolha_do_menu_usuario_int = int(
                     config.escolha_do_menu_usuario)
                 if config.escolha_do_menu_usuario_int == 0:
-                    config.limpeza_e_time(2)
+                    config.limpeza_e_time(1)
                     print(70*"=")
                     print("        OBRIGADO PELA PREFERÊNCIA, ATÉ LOGO! ", {
                           nome_do_usuario})
                     print(70*"-")
                     print('Desconectando do sistema...')
                     print(70*"=")
-                    config.limpeza_e_time(3)
+                    config.limpeza_e_time(1)
                     config.loop_menu_usuario_comum = False
                     config.login_usuario_comum_efetuado = False
                 elif config.escolha_do_menu_usuario_int == 1:
                     config.loop_dicas_De_treino = True
-                    config.limpeza_e_time(2)
+                    config.limpeza_e_time(1)
                     while config.loop_dicas_De_treino:
+                        verificacao = 0
                         for dica in DicasAcademia.listaDicasAlimentação or DicasAcademia.listaDicasExercícios:
-
+                    
                     #DETECTA DICAS DE ALIMENTAÇÃO E IMPRIME-------------------------------------------
+                            if verificacao == 0:
                                 for dica in DicasAcademia.listaDicasAlimentação:
-                                    print('SISTEMA DE DICAS:'
-                                        )
-                                    time.sleep(1)
-                                    eval(dica).imprimir(dica)
-                                    time.sleep(1)
-                                    print('Pressione [ENTER] para proxima dica...')
-                                    pular_ou_sair = input(
-                                        '[S] para sair do sistema... ').lower().startswith('s')
-                                    time.sleep(1)
-                                    os.system('cls')
-                                    if pular_ou_sair is True:
-                                        config.loop_dicas_De_treino = False
-
-                    #DETECTA DICAS DE EXERCICIO E IMPRIME-------------------------------------------
-                                for dica in listaDicasExercícios:
-                                    print('SISTEMA DE DICAS:'
-                                        )
-                                    time.sleep(1)
-                                    eval(dica).imprimir(dica, eval(dica)._objetivo)
-                                    time.sleep(1)
-                                    print('Pressione [ENTER] para proxima dica...')
-                                    pular_ou_sair = input(
-                                        '[S] para sair do sistema... ').lower().startswith('s')
-                                    time.sleep(1)
-                                    os.system('cls')
-                                    if pular_ou_sair is True:
-                                        config.loop_dicas_De_treino = False
-                                        break
+                                    if verificacao == 0:
+                                        print('SISTEMA DE DICAS:'
+                                            )
+                                        time.sleep(1)
+                                        eval(dica).imprimir(dica)
+                                        time.sleep(1)
+                                        print('Pressione [ENTER] para proxima dica...')
+                                        pular_ou_sair = input(
+                                            '[S] para sair do sistema... ').lower().startswith('s')
+                                        time.sleep(1)
+                                        os.system('cls')
+                                        if pular_ou_sair is True:
+                                            verificacao = 1
+                                            config.loop_dicas_De_treino = False
+                                            break
+                                if verificacao ==0:
+                        #DETECTA DICAS DE EXERCICIO E IMPRIME-------------------------------------------
+                                    for dica in DicasAcademia.listaDicasExercícios:
+                                        if verificacao == 0:
+                                            print('SISTEMA DE DICAS:'
+                                                )
+                                            time.sleep(1)
+                                            eval(dica).imprimir(dica, eval(dica)._objetivo)
+                                            time.sleep(1)
+                                            print('Pressione [ENTER] para proxima dica...')
+                                            pular_ou_sair = input(
+                                                '[S] para sair do sistema... ').lower().startswith('s')
+                                            time.sleep(1)
+                                            os.system('cls')
+                                            if pular_ou_sair is True:
+                                                verificacao = 1
+                                                config.loop_dicas_De_treino = False
+                                                break
+                                        
 
 # FICHA DE TREINO ------------------------------------------------------------------------------------------------------
                 elif config.escolha_do_menu_usuario_int == 2:
