@@ -103,7 +103,7 @@ while controle_principal:
                                 for dica in DicasAcademia.listaDicasAlimentação:
                                     if verificacao == 0:
                                         print(70*"=")
-                                        print('SISTEMA DE DICAS:'
+                                        print('                        SISTEMA DE DICAS:'
                                             )
                                         print(70*"-")
                                         time.sleep(1)
@@ -124,12 +124,12 @@ while controle_principal:
                                     for dica in DicasAcademia.listaDicasExercícios:
                                         if verificacao == 0:
                                             print(70*"=")
-                                            print('SISTEMA DE DICAS:'
+                                            print('                                     SISTEMA DE DICAS:'
                                                 )
                                             print(70*"-")
                                             time.sleep(1)
                                             eval(dica).imprimir(dica, eval(dica)._objetivo)
-                                            print(70*"-")
+                                            print(70*"=")
                                             time.sleep(1)
                                             print('Pressione [ENTER] para proxima dica...')
                                             pular_ou_sair = input(

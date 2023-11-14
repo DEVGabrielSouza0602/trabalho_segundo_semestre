@@ -22,8 +22,9 @@ class DicasAlimentação (DicasAcademia):
 
     def imprimir(self, titulo):
         print(
-            f'Tema: {self._titulo}\n'
-            f'Dica: {self._texto}'
+            f'TEMA: {self._titulo}\n',
+            (70*"-"),
+            f'\nDICA: {self._texto}'
         )
 
 
@@ -36,24 +37,25 @@ class DicasExercícios (DicasAcademia):
 
     def imprimir(self, titulo, objetivo):
         print(
-            f'Tema: {self._titulo}\n'
-            f'Objetivo: {self._objetivo}\n'
-            f'Dica: {self._texto}'
+            f'TEMA: {self._titulo}\n',
+            f'OBJETIVO: {self._objetivo}\n',
+            (70*"-"),
+            f'\nDICA: {self._texto}'
         )
 
 
 # CRIANDO OBJETOS ---------------------------------------------------------------
 Hidratação = DicasAlimentação(
-    'Hidratação', '"Hidratação é chave. Água mantém seus músculos funcionando adequadamente e ajuda na recuperação pós-treino."')
+    'Hidratação', '"Hidratação é chave. Água mantém seus músculos funcionando\nadequadamente e ajuda na recuperação pós-treino."')
 
 Suplementos = DicasAlimentação(
-    'Suplementos', 'Suplementos podem ajudar, mas não substituem uma dieta equilibrada. Consulte um nutricionista para orientações específicas.')
+    'Suplementos', 'Suplementos podem ajudar, mas não substituem uma dieta equilibrada.\nConsulte um nutricionista para orientações específicas.')
 
 Intervalos = DicasExercícios(
-    'Intervalos', 'Intensidade', 'Intervalos de alta intensidade: alternar entre períodos de alta e baixa intensidade pode acelerar a queima de gordura.')
+    'Intervalos', 'Intensidade', 'Intervalos de alta intensidade: alternar entre períodos\nde alta e baixa intensidade pode acelerar a queima de gordura.')
 
 Cardio = DicasExercícios(
-    'Cardio', 'Queima de calorias', 'Combine treinos de cardio e musculação para maximizar a queima de calorias e tonificar o corpo.')
+    'Cardio', 'Queima de calorias', 'Combine treinos de cardio e musculação para maximizar\na queima de calorias e tonificar o corpo.')
 
 #LISTA PARA ARMAZENAR OS TEMAS DE DICAS-----------------------------------------
 listaDicasAlimentação = []
