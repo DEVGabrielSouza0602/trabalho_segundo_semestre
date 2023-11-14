@@ -175,35 +175,44 @@ while controle_principal:
 
                         print("\n", 69*"=")
                         print('\n[1]Deseja sair')
-                        print('\n[2]Deseja imprimir o texto')
+                        print('\n[2]Deseja imprimir algum treino')
                         print('\n[3]Deseja ver outro treino')
-                        escolha_menu_ficha = int(
-                            input("Digite o indice correspondente ao que deseja: "))
+                        escolha_menu_ficha = int(input("Digite o índice correspondente ao que deseja: "))
+
                         if escolha_menu_ficha == 1:
                             sair_sistema_de_treino = True
                             config.loop_ficha_de_treino = False
                             time.sleep(1)
                             os.system('cls')
                         elif escolha_menu_ficha == 2:
-                            if dia_digitado in config.dicionario_de_treinos:
-                                treinos_do_dia = config.dicionario_de_treinos[dia_digitado]
-                                nome_do_arquivo = "treinos_" + \
-                                    str(dia_digitado) + ".txt"
+                            indiceDias = []
+
+                            for dia in config.dicionario_de_treinos:
+                                indiceDias.append(dia)
+
+                            print(indiceDias)
+
+                            seletor = int(input("Dia desejado: "))
+
+                            if seletor < len(indiceDias):
+                                diaSelecionado = indiceDias[seletor]
+                                print(diaSelecionado, config.dicionario_de_treinos[diaSelecionado])
+
+                                nome_do_arquivo = "treinos_" + str(diaSelecionado) + ".txt"
 
                                 with open(nome_do_arquivo, 'w') as arquivo:
-                                    for treino in treinos_do_dia:
-                                        arquivo.write(treino + "\n")
+                                    for exercicio in config.dicionario_de_treinos[diaSelecionado]:
+                                        arquivo.write(exercicio + "\n")  # Garanta que 'exercicio' seja uma string
 
-                                print(
-                                    f"Os treinos do dia {dia_digitado} foram salvos em {nome_do_arquivo}")
+                                print(f"Os treinos do dia {diaSelecionado} foram salvos em {nome_do_arquivo}")
                             else:
-                                print(
-                                    f"O dia {dia_digitado} não está no dicionário de treinos.")
+                                print(f"O índice {seletor} está fora do intervalo.")
+                            
                             sair_sistema_de_treino = True
                             config.loop_ficha_de_treino = False
-
                             time.sleep(1)
                             os.system('cls')
+
                         elif escolha_menu_ficha == 3:
                             config.loop_ficha_de_treino = True
 
