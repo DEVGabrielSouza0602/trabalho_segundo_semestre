@@ -18,20 +18,17 @@ while controle_principal:
     print("                     TELA DE LOGIN DO USUÁRIO")
     print(70*"-")
 
-    # Solicitar o nome do arquivo ao usuário
     nome_arquivo = input("Digite o nome do arquivo (incluindo a extensão): ")
 
-    # Verificar se o arquivo existe
+    # fiz algumas alterações no login
     if os.path.exists(nome_arquivo):
-        # Ler o conteúdo do arquivo
+
         with open(nome_arquivo, 'r') as arquivo:
-            # Ler o nome de usuário do arquivo
+
             usuario_arquivo = arquivo.read().strip()
 
-        # Solicitar a senha ao usuário
         senha_inserida = input('Digite a sua senha: ')
 
-        # Chamar a função para realizar o login
         fazer_login(usuario_arquivo, senha_inserida)
 
     else:
