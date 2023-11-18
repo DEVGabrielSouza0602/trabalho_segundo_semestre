@@ -6,7 +6,7 @@ import os
 import Alimentos
 from Alimentos import Carnes, Frutas, Graos, Liquidos, Verduras
 from Alimentos import Frango, ArrozBranco, FeijãoPreto, BatataDoce, Banana, Maça, Leite
-
+from config import fazer_login
 import DicasAcademia
 from DicasAcademia import DicasAlimentação, DicasExercícios
 from DicasAcademia import Hidratação, Suplementos, Intervalos, Cardio
@@ -17,17 +17,25 @@ while controle_principal:
     print(70*"=")  # Cabeçario Tela de Login
     print("                     TELA DE LOGIN DO USUÁRIO")
     print(70*"-")
-    usuario_inserido = input('Digite o seu Usuario: ').capitalize()
-    senha_inserida = input('Digite a sua senha: ')
-    print(70*"-")
-    if usuario_inserido in config.usuarios_permitidos['Usuarios']:
-        if senha_inserida in config.usuarios_permitidos['Senhas']:
-            config.login_usuario_comum_efetuado = True
-    elif usuario_inserido == config.login_usuario_master and senha_inserida == config.senha_usuario_master:
-        config.login_usuario_master_efetuado = True
+
+    # Solicitar o nome do arquivo ao usuário
+    nome_arquivo = input("Digite o nome do arquivo (incluindo a extensão): ")
+
+    # Verificar se o arquivo existe
+    if os.path.exists(nome_arquivo):
+        # Ler o conteúdo do arquivo
+        with open(nome_arquivo, 'r') as arquivo:
+            # Ler o nome de usuário do arquivo
+            usuario_arquivo = arquivo.read().strip()
+
+        # Solicitar a senha ao usuário
+        senha_inserida = input('Digite a sua senha: ')
+
+        # Chamar a função para realizar o login
+        fazer_login(usuario_arquivo, senha_inserida)
+
     else:
-        print('Usuario ou senha incorreto.')
-        config.limpeza_e_time(1)
+        print(f"O arquivo '{nome_arquivo}' não foi encontrado.")
 
     while config.login_usuario_comum_efetuado:
         config.loop_ficha_de_treino = True
@@ -35,7 +43,7 @@ while controle_principal:
         print(70*"=")  # Cabeçario Login efetuado
         print("                      LOGIN FEITO COM SUCESSO")
         print(70*"=")
-        print(f'OLÁ {usuario_inserido}, seja bem vindo!')
+        print(f'OLÁ {usuario_arquivo}, seja bem vindo!')
         config.limpeza_e_time(1)
         print(70*"=")  # Cabeçario de solicitação de informações
         print("                       INFORMAÇÕES CADASTRAIS")
@@ -97,20 +105,21 @@ while controle_principal:
                     while config.loop_dicas_De_treino:
                         verificacao = 0
                         for dica in DicasAcademia.listaDicasAlimentação or DicasAcademia.listaDicasExercícios:
-                    
-                    #DETECTA DICAS DE ALIMENTAÇÃO E IMPRIME-------------------------------------------
+
+                            # DETECTA DICAS DE ALIMENTAÇÃO E IMPRIME-------------------------------------------
                             if verificacao == 0:
                                 for dica in DicasAcademia.listaDicasAlimentação:
                                     if verificacao == 0:
                                         print(70*"=")
                                         print('                        SISTEMA DE DICAS:'
-                                            )
+                                              )
                                         print(70*"-")
                                         time.sleep(1)
                                         eval(dica).imprimir(dica)
                                         print(70*"=")
                                         time.sleep(1)
-                                        print('Pressione [ENTER] para proxima dica...')
+                                        print(
+                                            'Pressione [ENTER] para proxima dica...')
                                         pular_ou_sair = input(
                                             '[S] para sair do sistema... ').lower().startswith('s')
                                         time.sleep(1)
@@ -119,19 +128,21 @@ while controle_principal:
                                             verificacao = 1
                                             config.loop_dicas_De_treino = False
                                             break
-                                if verificacao ==0:
-                        #DETECTA DICAS DE EXERCICIO E IMPRIME-------------------------------------------
+                                if verificacao == 0:
+                                    # DETECTA DICAS DE EXERCICIO E IMPRIME-------------------------------------------
                                     for dica in DicasAcademia.listaDicasExercícios:
                                         if verificacao == 0:
                                             print(70*"=")
                                             print('                                     SISTEMA DE DICAS:'
-                                                )
+                                                  )
                                             print(70*"-")
                                             time.sleep(1)
-                                            eval(dica).imprimir(dica, eval(dica)._objetivo)
+                                            eval(dica).imprimir(
+                                                dica, eval(dica)._objetivo)
                                             print(70*"=")
                                             time.sleep(1)
-                                            print('Pressione [ENTER] para proxima dica...')
+                                            print(
+                                                'Pressione [ENTER] para proxima dica...')
                                             pular_ou_sair = input(
                                                 '[S] para sair do sistema... ').lower().startswith('s')
                                             time.sleep(1)
@@ -140,7 +151,7 @@ while controle_principal:
                                                 verificacao = 1
                                                 config.loop_dicas_De_treino = False
                                                 break
-                                        
+
 
 # FICHA DE TREINO ------------------------------------------------------------------------------------------------------
                 elif config.escolha_do_menu_usuario_int == 2:
@@ -192,7 +203,8 @@ while controle_principal:
                         print('\n[1]Deseja sair')
                         print('\n[2]Deseja imprimir algum treino')
                         print('\n[3]Deseja ver outro treino')
-                        escolha_menu_ficha = int(input("Digite o índice correspondente ao que deseja: "))
+                        escolha_menu_ficha = int(
+                            input("Digite o índice correspondente ao que deseja: "))
 
                         if escolha_menu_ficha == 1:
                             sair_sistema_de_treino = True
@@ -211,18 +223,23 @@ while controle_principal:
 
                             if seletor < len(indiceDias):
                                 diaSelecionado = indiceDias[seletor]
-                                print(diaSelecionado, config.dicionario_de_treinos[diaSelecionado])
+                                print(
+                                    diaSelecionado, config.dicionario_de_treinos[diaSelecionado])
 
-                                nome_do_arquivo = "treinos_" + str(diaSelecionado) + ".txt"
+                                nome_do_arquivo = "treinos_" + \
+                                    str(diaSelecionado) + ".txt"
 
                                 with open(nome_do_arquivo, 'w') as arquivo:
                                     for exercicio in config.dicionario_de_treinos[diaSelecionado]:
-                                        arquivo.write(exercicio + "\n")  # Garanta que 'exercicio' seja uma string
+                                        # Garanta que 'exercicio' seja uma string
+                                        arquivo.write(exercicio + "\n")
 
-                                print(f"Os treinos do dia {diaSelecionado} foram salvos em {nome_do_arquivo}")
+                                print(
+                                    f"Os treinos do dia {diaSelecionado} foram salvos em {nome_do_arquivo}")
                             else:
-                                print(f"O índice {seletor} está fora do intervalo.")
-                            
+                                print(
+                                    f"O índice {seletor} está fora do intervalo.")
+
                             sair_sistema_de_treino = True
                             config.loop_ficha_de_treino = False
                             time.sleep(1)
