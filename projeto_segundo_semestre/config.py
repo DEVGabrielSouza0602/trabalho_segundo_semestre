@@ -131,27 +131,12 @@ def escrever_treinos_em_arquivo(dicionario_de_treinos, dia_digitado):
             print(f"O dia {dia_digitado} não está no dicionário de treinos.")
 
 
-def arq_usuario(usuario_inserido):
-    try:
-        with open(usuario_inserido, 'r') as arquivo:
-            linhas_usuario = [linha.strip() for linha in arquivo]
-            return linhas_usuario
-    except FileNotFoundError:
-        print(f"O arquivo '{usuario_inserido}' não foi encontrado.")
-        return None
-    except Exception as e:
-        print(f"Ocorreu um erro ao ler o arquivo: {e}")
-        return None
-
-
-def arq_senha(senha_inserida):
-    try:
-        with open(senha_inserida, 'r') as arquivo:
-            linhas_senha = [linha.strip() for linha in arquivo]
-            return linhas_senha
-    except FileNotFoundError:
-        print(f"O arquivo '{senha_inserida}' não foi encontrado.")
-        return None
-    except Exception as e:
-        print(f"Ocorreu um erro ao ler o arquivo: {e}")
-        return None
+def fazer_login(usuario, senha):
+    print(70 * "-")
+    if usuario in config.usuarios_permitidos['Usuarios'] and senha in config.usuarios_permitidos['Senhas']:
+        config.login_usuario_comum_efetuado = True
+    elif usuario == config.login_usuario_master and senha == config.senha_usuario_master:
+        config.login_usuario_master_efetuado = True
+    else:
+        print('Usuário ou senha incorretos.')
+        config.limpeza_e_time(1)
