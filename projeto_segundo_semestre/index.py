@@ -215,7 +215,8 @@ while controle_principal:
                             for dia in config.dicionario_de_treinos:
                                 indiceDias.append(dia)
 
-                            print(indiceDias)
+                            print(config.apresentacao_dos_dias_da_semana(
+                                config.dias_da_semana_ficha_de_treino))
 
                             seletor = int(input("Dia desejado: "))
 
