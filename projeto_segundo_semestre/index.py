@@ -42,7 +42,7 @@ while controle_principal:
         print("                      LOGIN FEITO COM SUCESSO")
         print(70*"=")
         print(f'OLÁ {nome_usuario_arquivo}, seja bem vindo!')
-        config.limpeza_e_time(1)
+        config.limpeza_e_time(3)
         print(70*"=")  # Cabeçario de solicitação de informações
         print("                       INFORMAÇÕES CADASTRAIS")
         print(70*"-")
@@ -131,7 +131,7 @@ while controle_principal:
                                     for dica in DicasAcademia.listaDicasExercícios:
                                         if verificacao == 0:
                                             print(70*"=")
-                                            print('                                     SISTEMA DE DICAS:'
+                                            print('                        SISTEMA DE DICAS:'
                                                   )
                                             print(70*"-")
                                             time.sleep(1)
@@ -201,8 +201,10 @@ while controle_principal:
                         print('\n[1]Deseja sair')
                         print('\n[2]Deseja imprimir algum treino')
                         print('\n[3]Deseja ver outro treino')
+                        print(70*"-")
                         escolha_menu_ficha = int(
                             input("Digite o índice correspondente ao que deseja: "))
+                        os.system("cls")
 
                         if escolha_menu_ficha == 1:
                             sair_sistema_de_treino = True
@@ -215,9 +217,13 @@ while controle_principal:
                             for dia in config.dicionario_de_treinos:
                                 indiceDias.append(dia)
 
+                            print(70*"=")
+                            print('                     FICHA DE TREINO!')
+                            print(70*"-")
                             print(config.apresentacao_dos_dias_da_semana(
                                 config.dias_da_semana_ficha_de_treino))
 
+                            print(70*"-")
                             seletor = int(input("Dia desejado: "))
 
                             if seletor < len(indiceDias):

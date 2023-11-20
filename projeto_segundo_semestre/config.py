@@ -8,7 +8,7 @@ def limpeza_e_time(segundos):
 
 
 usuarios_permitidos = {
-    'Usuarios': ['Gabriel', 'F', 'Emanuel'],
+    'Usuarios': ['Gabriel', 'DaquiPraFrenteSoParaTras', 'Emanuel'],
     'Senhas': ['1', '2334', '3445']
 }
 
