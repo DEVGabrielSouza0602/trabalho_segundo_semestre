@@ -6,7 +6,7 @@ import os
 import Alimentos
 from Alimentos import Carnes, Frutas, Graos, Liquidos, Verduras
 from Alimentos import Frango, ArrozBranco, FeijãoPreto, BatataDoce, Banana, Maça, Leite
-from config import fazer_login
+from leitura_arquivo import ler_nome_e_senha
 import DicasAcademia
 from DicasAcademia import DicasAlimentação, DicasExercícios
 from DicasAcademia import Hidratação, Suplementos, Intervalos, Cardio
@@ -18,21 +18,22 @@ while controle_principal:
     print("                     TELA DE LOGIN DO USUÁRIO")
     print(70*"-")
 
-    nome_arquivo = input("Digite o nome do arquivo (incluindo a extensão): ")
+    nome_arquivo = input(
+        'Digite o nome do arquivo contendo o nome de usuário e senha: ')
+    nome_arquivo = nome_arquivo.strip()
 
-    # fiz algumas alterações no login
-    if os.path.exists(nome_arquivo):
+    nome_usuario_arquivo, senha_arquivo = ler_nome_e_senha(nome_arquivo)
 
-        with open(nome_arquivo, 'r') as arquivo:
-
-            usuario_arquivo = arquivo.read().strip()
-
-        senha_inserida = input('Digite a sua senha: ')
-
-        fazer_login(usuario_arquivo, senha_inserida)
-
+    if nome_usuario_arquivo is not None and senha_arquivo is not None:
+        if nome_usuario_arquivo in config.usuarios_permitidos['Usuarios'] and senha_arquivo in config.usuarios_permitidos['Senhas']:
+            config.login_usuario_comum_efetuado = True
+        elif nome_usuario_arquivo == config.login_usuario_master and senha_arquivo == config.senha_usuario_master:
+            config.login_usuario_master_efetuado = True
+        else:
+            print('Usuário ou senha incorretos.')
+            config.limpeza_e_time(1)
     else:
-        print(f"O arquivo '{nome_arquivo}' não foi encontrado.")
+        print('Não foi possível fazer login devido a um erro na leitura do arquivo.')
 
     while config.login_usuario_comum_efetuado:
         config.loop_ficha_de_treino = True
@@ -40,7 +41,7 @@ while controle_principal:
         print(70*"=")  # Cabeçario Login efetuado
         print("                      LOGIN FEITO COM SUCESSO")
         print(70*"=")
-        print(f'OLÁ {usuario_arquivo}, seja bem vindo!')
+        print(f'OLÁ {nome_usuario_arquivo}, seja bem vindo!')
         config.limpeza_e_time(1)
         print(70*"=")  # Cabeçario de solicitação de informações
         print("                       INFORMAÇÕES CADASTRAIS")
